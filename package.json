@@ -1,0 +1,14 @@
+{
+  "name": "Pregled-meritev",
+  "author": "Enej Ravbar",
+  "dependencies": {
+    "express": "latest",
+    "express-session":"latest",
+    "formidable": "latest",
+    "util": "latest",
+    "fs":"latest",
+    "http":"latest",
+    "https":"latest",
+    "body-parser":"latest"
+  }
+}
