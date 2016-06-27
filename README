@@ -1,0 +1,8 @@
+
+sudo npm install -g nodemon
+
+//----------------------------------------------------------------------------------
+
+Ukaz za avtomatski ponovni pogon server.js, ko pride do spremembe config/config.txt
+
+sudo nodemon -e txt --watch config server.js

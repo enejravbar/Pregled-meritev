@@ -4,6 +4,7 @@ var express = require('express');
 var expressSession = require('express-session');
 var path = require('path');
 var bodyParser= require('body-parser')
+var crypto = require('crypto');
 
 var streznik = express();
 
@@ -31,14 +32,14 @@ httpsServer.listen(443,function(){
 streznik.use(express.static('public'));
 
 
-streznik.use(bodyParser.text());
+streznik.use(bodyParser.json());
 streznik.use(
   expressSession({
     secret: '1234567890QWERTY', // Skrivni ključ za podpisovanje piškotkov
     saveUninitialized: true,    // Novo sejo shranimo
     resave: false,              // Ne zahtevamo ponovnega shranjevanja
     cookie: {
-      maxAge: 3600000           // Seja poteče po 60min neaktivnosti
+      maxAge: 3600000           // Seja poteče po 60min neaktivnosti v ms
     }
   })
 );
@@ -66,32 +67,31 @@ streznik.get("/", function(zahteva, odgovor){
 })
 
 streznik.get("/login", function(zahteva, odgovor){
-	odgovor.sendFile(path.join(__dirname, 'public/', 'login.html'));
+	odgovor.sendFile(path.join(__dirname, 'public', 'login.html'));
 })
 
 streznik.post("/checkLogin", function(zahteva, odgovor){
 	
-	console.log("body "+util.inspect(zahteva.body));
-	console.log("username "+zahteva.body.username);
+	var uporabniskoIme = zahteva.body.username;
+	var geslo = zahteva.body.password;
 
-	var form = new formidable.IncomingForm();
+	var gesloHash=ustvariHash(geslo);
+	console.log("Hash: " + gesloHash);
+	// dostop do uporabniških podatkov zahteva.body.username in zahteva.body.password
+	
+	console.log("username "+zahteva.body.username + "\npassword "+zahteva.body.password);
 
-	form.parse(zahteva, function(napaka, polja, datoteke){
-		console.log("Uporabniski podatki so: "+util.inspect(polja));
-	});
-		//console.log(util.inspect(polja));
+	var ajaxOdgovor={
+		pravilno : true,
+		preusmeritev : "/login"
+	}
 		
-		/*var uporabniskiPodatki=JSON.parse(polja);
-		console.log("Uporabniski podatki so: "+ util.inspect(uporabniskiPodatki));
-		
-		if(geslo=="ravbarenej"){
-		zahteva.session.uporabnik=uporabniskoIme;
-		odgovor.redirect("/");
-		}else{
-			odgovor.send(false);
-		}*/
-	
-	
+		//odgovor.writeHead(200, {"Content-Type": "text/json"}); 
+		//odgovor.redirect("/login")odgovor.redirect("/login");
+
+      	odgovor.json(JSON.stringify(ajaxOdgovor));
+
+
 })
 
 streznik.get("*", function(zahteva, odgovor){
@@ -101,3 +101,15 @@ streznik.get("*", function(zahteva, odgovor){
 		odgovor.redirect("/");
 	}
 })
+
+function ustvariHash(besedilo){
+	var hash = crypto.createHash('sha256').update(besedilo).digest("hex");
+	return hash;
+}
+
+function primerjajDvaHasha(hash1,hash2){
+	if(hash1==hash2){
+		return true;
+	}
+	return false;
+}

@@ -9,6 +9,8 @@
     "fs":"latest",
     "http":"latest",
     "https":"latest",
-    "body-parser":"latest"
+    "body-parser":"latest",
+    "crypto" : "latest",
+    "nodemon" : "latest"
   }
 }
