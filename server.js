@@ -86,13 +86,8 @@ streznik.post("/checkLogin", function(zahteva, odgovor){
 		pravilno : true,
 		preusmeritev : "/login"
 	}
-		
-		//odgovor.writeHead(200, {"Content-Type": "text/json"}); 
-		//odgovor.redirect("/login")odgovor.redirect("/login");
 
       	odgovor.json(JSON.stringify(ajaxOdgovor));
-
-
 })
 
 streznik.get("*", function(zahteva, odgovor){

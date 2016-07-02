@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pregled meritev Pivka Perutninarstvo</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="knjiznice/bootstrap-v3.3.6/css/bootstrap.css">
+		<link rel="stylesheet" href="knjiznice/bootstrap-v3.3.6/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="css/nastavitve.css">
+		<script src="knjiznice/jQuery-v2.1.4/jQuery-v2.1.4.js"></script>
+		<script src="knjiznice/bootstrap-v3.3.6/js/bootstrap.js"></script>
+		<style>
+			body{
+				margin:0;
+				background-color: #259CEC;
+				
+			}
+		</style>
+		
+		<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+		<div id="cointainer-glava" class=".container-fluid">
+			<div id="glava" class="row" style="position:fixed; left:15px; z-index:5;width:100%;">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						 <a href="stran.html"><span id="glava-naslov"><b>Pregled meritev Pivka Perutninarstvo</b></span></a>
+						 <a href="nastavitve.html"><span class="menu-povezava" style="position:fixed; right:30px; top:4px;"> <span class="glyphicon glyphicon-cog" style="font-size:17px; "></span> Nastavitve</span> </a>	
+					</div>              			
+			</div>
+			
+
+		</div>
+
+		<div id="cointainer-telo" class=".container-fluid" style="padding-top:70px;">
+
+			<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="panel panel-primary" style="margin-left:3%;margin-top:20px;width:94%;">
+							
+							<div id="nastavitve" class="panel-body">
+								 <ul>
+								  <li class="active"><a>Senzor</a></li>
+								  <li><a>Podatkovna baza</a></li>
+								  <li><a>Obveščanje</a></li>
+								  <li><a>Seznam uporabnikov</a></li>
+								  <li><a>Registracija novega uporabnika</a></li>
+								  
+								</ul>
+
+							</div>
+
+				<!-- NASTAVITVE ZA PODATKOVNO BAZO -->
+							<div id="podatkovnaBaza" class="panel-body" style="display:none;">
+                                <div class="row">
+                                	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		                              <div class="form-group">
+
+		                                 <label for="ip" class="control-label" style="" >IP naslov:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="ip-naslov" type="ip" class="form-control" placeholder="10.10.0.1">
+		                                 </div>
+		                                 <label for="ime" class="control-label" style="margin-top:10px;" >Uporabniško ime:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="uporabnisko-ime" type="ime" class="form-control" placeholder="root">
+		                                 </div>
+		                                 <label for="geslo" class="control-label" style="margin-top:10px;">Geslo:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="geslo" type="password" class="form-control" >
+		                                 </div>
+		                                
+		                                 <button type="submit" class="btn btn-success" style="margin-top:10px;">Shrani nastavitve</button> 
+		                                 <div id="registracija-obvestilo-okvir" class="bg-danger fade-in obvestilo" style=" display:none; margin-left:15px; margin-top:10px; padding:6px; float:left;">
+		            
+		                                    <span id="registracija-obvestilo" > <span>
+		                                 </div>
+		                              </div>
+	                            </div>
+
+	                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+     
+		                          <table class="table table-hover" style="margin-top:30px;">
+								    <tbody>
+									      <tr>
+									      	<tr>
+										        <td style="border:none;">
+										        	<span>Vklopi avtomatsko brisanje izpisov starejših od
+										        		<select  id="preberiPredlogoBolnika" value="Obstoječi uporabniki" style="width:150px; color:black; margin-left:5px;">
+					                                       <option value="privzeto"></option>
+					                                       <option value="1dan">1 dneva</option>
+					                                       <option value="2dni">2 dni</option>
+					                                       <option value="4dni">4 dni</option>
+					                                       <option value="1teden">1 tedna</option>
+					                                       <option value="2tedna">2 tednov</option>
+					                                       <option value="1mesec">1 meseca</option>
+					                                       <option value="2meseca">2 mesecev</option>
+			                   
+			                                    		</select>
+										        	</span>	
+										        </td>
+										        <td style="border:none;">
+										        	<div class="onoffswitch">
+												        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" >
+												        <label class="onoffswitch-label" for="myonoffswitch">
+												            <span class="onoffswitch-inner"></span>
+												            <span class="onoffswitch-switch"></span>
+												        </label>
+												    </div>
+										        </td>
+									        
+									      </tr>
+									        <td>
+									        	<span>Izbriši vse zapise iz podatkovne baze starejše od 	
+									        	<select  id="preberiPredlogoBolnika" value="Obstoječi uporabniki" style="width:150px; color:black; margin-left:5px;">
+			                                       <option value="privzeto"></option>
+			                                       <option value="1dan">1 dneva</option>
+			                                       <option value="2dni">2 dni</option>
+			                                       <option value="4dni">4 dni</option>
+			                                       <option value="1teden">1 tedna</option>
+			                                       <option value="2tedna">2 tednov</option>
+			                                       <option value="1mesec">1 meseca</option>
+			                                       <option value="2meseca">2 mesecev</option>
+			                   
+			                                    </select>
+			                                    </span>
+									        </td>
+									        <td>
+									        	<button id="gumb-registriraj" type="submit" class="btn btn-danger btn-sm" style="margin-left:10px;">Izbriši</button>
+									        </td>
+								        
+								      </tr>
+								      <tr>
+									        <td>
+									        	<span>Izbriši vse zapise iz podatkovne baze</span>	
+									        </td>
+									        <td>
+									        	<button id="gumb-registriraj" type="submit" class="btn btn-danger btn-sm" style="margin-left:10px;">Izbriši</button>
+									        </td>
+								        
+								      </tr>
+								       <tr>
+									        <td>
+									        	
+									        </td>
+									        <td>
+									        	
+									        </td>
+								        
+								      </tr>
+								    </tbody>
+								  </table>     
+		                                 
+		                                 
+
+	                            </div>
+                           </div>
+						</div>
+						<!-- KONEC NASTAVITEV ZA PODATKOVNO BAZO -->
+
+						<!-- NASTAVITVE ZA OBVEŠČANJE -->
+							<div id="podatkovnaBaza" class="panel-body" style="">
+
+								<!-- E-Mail obvesčanje -->
+								<span><b>E-Mail obveščanje</b></span>
+								<hr style="margin-top:5px; margin-bottom:15px;">
+                                <div class="row">
+                                	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		                              <div class="form-group">
+
+		                                 <label for="ip" class="control-label" style="" >SMTP IP naslov:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="smtp-ip-naslov" type="ip" class="form-control" placeholder="10.10.0.1">
+		                                 </div>
+		                                 <label for="vrata" class="control-label" style="margin-top:10px;" >SMTP vrata:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="vrata" type="vrata" class="form-control" placeholder="25">
+		                                 </div>
+		                                 <button type="submit" class="btn btn-success" style="margin-top:10px;">Shrani nastavitve</button> 
+		                                 <div id="registracija-obvestilo-okvir" class="bg-danger fade-in obvestilo" style=" display:none; margin-left:15px; margin-top:10px; padding:6px; float:left;">
+		            
+		                                    <span id="registracija-obvestilo" > <span>
+		                                 </div>
+		                              </div>
+	                            </div>
+
+	                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+         
+		                                 <table class="table table-hover" style="margin-top:12px; margin-bottom:0px;">
+										    <tbody>
+											    <tr >
+											      	<td style="border:none;">
+											        	<input id="vrata" type="e-mail" class="form-control" placeholder="janez.novak@siol.net" style="display:inline; width:50%;">
+											        	<button type="submit" class="btn btn-primary btn-sm" style="display:inline; margin-left:10px;">Dodaj</button>
+											         </td>
+											         <td style="border:none;">
+											        	
+											         </td>
+										       	 </tr>
+										       	 <tr>
+											      	<td>
+											        	
+											         </td>
+											         <td>
+											        	
+											         </td>
+										       	 </tr>
+											      
+										    </tbody>
+										  </table>  
+
+										  <table class="table table-hover" style="margin-top:0px; padding-top:0px,">
+										    <thead>
+										      <tr>
+										        
+										        <th>Email naslov</th>
+										        <th></th>
+										      </tr>
+										    </thead>
+										    <tbody>
+										      <tr>
+										        <td>janez.novak@siol.net</td>
+										        <td>
+										        	<button type="submit" class="btn btn-danger btn-sm" style="display:inline; margin-left:10px;">Odstrani</button>
+										        </td>
+										      </tr>
+										      <tr>
+										        <td>peter.novak@siol.net</td>
+										        <td>
+										        	<button type="submit" class="btn btn-danger btn-sm" style="display:inline; margin-left:10px;">Odstrani</button>
+										        </td>
+										      </tr>
+										      <tr>
+										        <td>jože.novak@siol.net</td>
+										        <td>
+										        	<button type="submit" class="btn btn-danger btn-sm" style="display:inline; margin-left:10px;">Odstrani</button>
+										        </td>
+										      </tr>
+										    </tbody>
+										  </table>   
+		                                 
+		                                 
+
+	                            </div>
+                           </div>
+                           <!-- konec E-Mail obvesčanja-->
+
+                           <!-- začetek sms obvescanja -->
+                           <span><b>SMS obveščanje</b></span>
+								<hr style="margin-top:5px; margin-bottom:15px;">
+                                <div class="row">
+                                	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		                              <div class="form-group">
+
+		                                 <label for="ip" class="control-label" style="" >Uporabniško ime:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="smtp-ip-naslov" type="ip" class="form-control">
+		                                 </div>
+		                                 <label for="geslo" class="control-label" style="margin-top:10px;">Geslo:</label>
+		                                 <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		                                    <input id="geslo" type="password" class="form-control" >
+		                                 </div>
+
+		                                 <button type="submit" class="btn btn-success" style="margin-top:10px;">Shrani nastavitve</button> 
+		                                 <div id="registracija-obvestilo-okvir" class="bg-danger fade-in obvestilo" style=" display:none; margin-left:15px; margin-top:10px; padding:6px; float:left;">
+		            
+		                                    <span id="registracija-obvestilo" > <span>
+		                                 </div>
+		                              </div>
+	                            </div>
+
+	                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+         
+		                                 <table class="table table-hover" style="margin-top:12px; margin-bottom:0px;">
+										    <tbody>
+											    <tr >
+											      	<td style="border:none;">
+											        	<input id="telefonska-stevilka" class="form-control" placeholder="031233455" style="display:inline; width:50%;">
+											        	<button type="submit" class="btn btn-primary btn-sm" style="display:inline; margin-left:10px;">Dodaj</button>
+											         </td>
+											         <td style="border:none;">
+											        	
+											         </td>
+										       	 </tr>
+										       	 <tr>
+											      	<td>
+											        	
+											         </td>
+											         <td>
+											        	
+											         </td>
+										       	 </tr>
+											      
+										    </tbody>
+										  </table>  
+
+										  <table class="table table-hover" style="margin-top:0px; padding-top:0px,">
+										    <thead>
+										      <tr>
+										        
+										        <th>Telefonska številka</th>
+										        <th></th>
+										      </tr>
+										    </thead>
+										    <tbody>
+										      <tr>
+										        <td>031 233 455</td>
+										        <td>
+										        	<button type="submit" class="btn btn-danger btn-sm" style="display:inline; margin-left:10px;">Odstrani</button>
+										        </td>
+										      </tr>
+										      <tr>
+										        <td>041 762 394</td>
+										        <td>
+										        	<button type="submit" class="btn btn-danger btn-sm" style="display:inline; margin-left:10px;">Odstrani</button>
+										        </td>
+										      </tr>
+										      
+										    </tbody>
+										  </table>   
+		                                 
+		                                 
+
+	                            </div>
+                           </div>
+                           <!-- konec sms obvescanja-->
+
+						</div>
+						<!-- KONEC NASTAVITEV ZA OBVEŠČANJE -->
+					</div>              			
+			</div>
+
+		</div> 
+		 
+	</body>
+
+</html>
+
+
+    
