@@ -31,11 +31,11 @@ httpsServer.listen(443,function(){
 
 streznik.use(express.static('public'));
 
-
+//  // Skrivni ključ za podpisovanje piškotkov
 streznik.use(bodyParser.json());
 streznik.use(
   expressSession({
-    secret: '1234567890QWERTY', // Skrivni ključ za podpisovanje piškotkov
+    secret: '1234567890QWERTY',
     saveUninitialized: true,    // Novo sejo shranimo
     resave: false,              // Ne zahtevamo ponovnega shranjevanja
     cookie: {
@@ -67,6 +67,7 @@ streznik.get("/", function(zahteva, odgovor){
 })
 
 streznik.get("/login", function(zahteva, odgovor){
+	console.log("Zahteva na login ima sessionID="+zahteva.sessionID);
 	odgovor.sendFile(path.join(__dirname, 'public', 'login.html'));
 })
 

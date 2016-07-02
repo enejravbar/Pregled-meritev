@@ -9,6 +9,15 @@ body{
 	
 }
 
+.status{
+	display:block;
+	background-color:rgba(37, 156, 236, 0.5); 
+	-webkit-border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px; 
+	padding: 10px; 
+	margin-top:5px;
+}
 .vertical-offset-100{
     padding-top:100px;
 }

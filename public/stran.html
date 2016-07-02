@@ -12,10 +12,8 @@
 		
 		
 		<link rel="stylesheet" href="css/style.css">
-		
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-
+		<script src="knjiznice/HighCharts/highCharts.js"></script> 
+		<script src="js/izrisGrafov.js"></script>
 		<script src="js/koda.js"></script>
 
 	</head>
@@ -23,7 +21,7 @@
 		<div id="cointainer-glava" class=".container-fluid">
 			<div id="glava" class="row" style="position:fixed; left:15px; z-index:5;width:100%;">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						 <a href="index.html"><span id="glava-naslov"><b>Pregled meritev Pivka Perutninarstvo</b></span></a>
+						 <a href="stran.html"><span id="glava-naslov"><b>Pregled meritev Pivka Perutninarstvo</b></span></a>
 						 <a href="opis.html"><span class="menu-povezava" style="position:fixed; right:30px; top:4px;"> <span class="glyphicon glyphicon-cog" style="font-size:17px; "></span> Nastavitve</span> </a>
 					</div>              			
 			</div>
@@ -31,11 +29,49 @@
 		<div id="cointainer-telo" class=".container-fluid" style="padding-top:70px;">
 			<div id="temperatura" class="row">
 				<div id="temperatura-trenutna" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					
+
 					<div id="temperatura" class="row">
-						<div class="panel panel-primary" style="margin-left:3%;margin-top:20px;width:94%;">
-							<div class="panel-heading"><b>Pregled temperature</b></div>
 						
+						<div class="panel panel-primary" style="margin-left:3%; width:50%; min-width:470px; margin-top:20px; background-color:white;">
+							<div class="panel-heading">
+								<span><b>Status</b></span>
+							</div>
+							<div class="panel-body" style="background-color:white;">
+								<span class="status" style="margin-top:0px;float:left;">
+									<span><b>Temperatura: </b></span>
+									<span style="color:green;"><img src="slike/OK.png" style="height:22px;"></span>
+								</span>
+								<span class="status" style="margin-top:0px; margin-left:5px; float:left;">
+									<span><b>Senzor: </b></span>
+									<span style="color:green;"><img src="slike/OK.png" style="height:22px;"></span>
+								</span>
+								<span class="status" style="margin-top:0px; margin-left:5px;float:left;">
+									<span><b>Podatkovna baza: </b></span>
+									<span style="color:green;"><img src="slike/OK.png" style="height:22px;"></span>
+								</span>
+								
+							</div>
+						</div>
+						<div class="panel panel-primary" style="margin-left:3%;margin-top:20px;width:94%;">
+							<div class="panel-heading">
+								<div class="row">
+	                                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	                                    <span><b>Pregled temperature</b></span> 
+	                                 </div>
+	                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="position:relative;">
+	                                    <select  id="preberiPredlogoBolnika" value="Obstoječi uporabniki" style="position:absolute; width:150px; color:black; right:10px;top:-4px;">
+	                                       <option value="privzeto">število ur/dni</option>
+	                                       <option value="Calvin Harris">zadnja 1 ura</option>
+	                                       <option value="Ana Krašnja">zadnje 2 uri</option>
+	                                       <option value="Julija Tavčar">zadnje 4 ure</option>
+	                                       <option value="Calvin Harris">zadnjih 8 ur</option>
+	                                       <option value="Ana Krašnja">zadnje 12 ur</option>
+	                                       <option value="Julija Tavčar">zadnji dan</option>
+	                                       <option value="Julija Tavčar">zadnja 2 dni</option>
+	                                    </select>
+	                                 </div>
+                              </div>
+                            </div>
 							<div class="panel-body" >
 								
 								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="position:relative; height:370px;">
@@ -56,7 +92,7 @@
 							   
 							    
 							    <div id="temperatura-graf" class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="height:370px;">
-						
+							    	
 								</div>
 							</div>
 							    
@@ -66,7 +102,25 @@
 
 					<div id="vlaga" class="row">
 						<div class="panel panel-primary" style="margin-left:3%;margin-top:0px; width:94%;">
-							<div class="panel-heading"><b>Pregled vlage</b></div>
+							<div class="panel-heading">
+								<div class="row">
+	                                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	                                    <span><b>Pregled vlage</b></span> 
+	                                 </div>
+	                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="position:relative;">
+	                                    <select  id="preberiPredlogoBolnika" value="Obstoječi uporabniki" style="position:absolute; width:150px; color:black; right:10px;top:-4px;">
+	                                       <option value="privzeto">število ur/dni</option>
+	                                       <option value="Calvin Harris">zadnja 1 ura</option>
+	                                       <option value="Ana Krašnja">zadnje 2 uri</option>
+	                                       <option value="Julija Tavčar">zadnje 4 ure</option>
+	                                       <option value="Calvin Harris">zadnjih 8 ur</option>
+	                                       <option value="Ana Krašnja">zadnje 12 ur</option>
+	                                       <option value="Julija Tavčar">zadnji dan</option>
+	                                       <option value="Julija Tavčar">zadnja 2 dni</option>
+	                                    </select>
+	                                 </div>
+                                </div>
+							</div>
 						
 							<div class="panel-body">
 								
@@ -103,7 +157,7 @@
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 							      		<div class="row">
 							      			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								      			<div id="povprecnaTemperatura-graf" style="display:block; background-color:rgba(37, 156, 236, 0.5); -webkit-border-radius: 7px; -moz-border-radius: 7px; border-radius: 7px; padding: 15px; margin-top:5px;">
+								      			<div id="povprecnaTemperatura-graf" style="display:block;" class="status" >
 								      				<span><b>Povprečna temperatura</b><br></span>
 								      				<span>  </span>
 								      				<div class="progress" style="height:30px; margin-top:10px;">
@@ -115,7 +169,7 @@
 								      			</div>
 								      		</div>
 							      			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							      				<div id="povprecnaVlaga-graf" style="display:block; background-color:rgba(37, 156, 236, 0.5); -webkit-border-radius: 7px; -moz-border-radius: 7px; border-radius: 7px; padding: 15px; margin-top:5px;">
+							      				<div id="povprecnaVlaga-graf" style="display:block;" class="status">
 								      				<span><b>Povprečna vlaga</b><br></span>
 								      				<span>  </span>
 								      				<div class="progress" style="height:30px; margin-top:10px;">
