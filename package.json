@@ -11,6 +11,7 @@
     "https":"latest",
     "body-parser":"latest",
     "crypto" : "latest",
-    "nodemon" : "latest"
+    "nodemon" : "latest",
+    "node-dht-sensor" : "latest"
   }
 }

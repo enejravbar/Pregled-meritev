@@ -6,6 +6,8 @@ var path = require('path');
 var bodyParser= require('body-parser')
 var crypto = require('crypto');
 
+//var senzorLib = require('node-dht-sensor');
+
 var streznik = express();
 
 var fs = require('fs');
@@ -58,6 +60,7 @@ streznik.use(function(req, res, next) {
 streznik.get("/", function(zahteva, odgovor){
 
 	if(!zahteva.session.uporabnik){
+		console.log("Uporabnik")
 		odgovor.redirect("/login");
 	}else{
 		odgovor.sendFile(path.join(__dirname, 'public', 'stran.html'));
@@ -71,6 +74,16 @@ streznik.get("/login", function(zahteva, odgovor){
 	odgovor.sendFile(path.join(__dirname, 'public', 'login.html'));
 })
 
+streznik.get("/nastavitve", function(zahteva, odgovor){
+	//console.log("Zahteva na login ima sessionID="+zahteva.sessionID);
+	odgovor.sendFile(path.join(__dirname, 'public', 'nastavitve.html'));
+})
+
+streznik.get("/odjava", function(zahteva, odgovor){
+	zahteva.session.uporabnik=null;
+	odgovor.redirect("/");
+})
+
 streznik.post("/checkLogin", function(zahteva, odgovor){
 	
 	var uporabniskoIme = zahteva.body.username;
@@ -81,13 +94,36 @@ streznik.post("/checkLogin", function(zahteva, odgovor){
 	// dostop do uporabniških podatkov zahteva.body.username in zahteva.body.password
 	
 	console.log("username "+zahteva.body.username + "\npassword "+zahteva.body.password);
-
+	zahteva.session.uporabnik=uporabniskoIme;
 	var ajaxOdgovor={
 		pravilno : true,
-		preusmeritev : "/login"
+		preusmeritev : "/"
 	}
 
       	odgovor.json(JSON.stringify(ajaxOdgovor));
+})
+
+streznik.post("/konfiguracija", function(zahteva, odgovor){
+	var konfiguracija = zahteva.body;
+	console.log(konfiguracija);
+	
+	fs.writeFile("config/config", JSON.stringify(konfiguracija), function(err,data){
+		if(!err){
+			console.log("Konfiguracijska datoteka uspešno zapisana!");
+			preberiKonfiguracijskoDatoteko();
+			odgovor.json({uspeh : true});
+		}else{
+			console.log("NAPAKA! Pri pisanju konfiguracijske datoteke!");
+			console.log(err);
+			odgovor.json({uspeh : false});
+		}
+	});
+
+})
+
+streznik.post("/pridobiKonfiguracijo", function(zahteva, odgovor){
+	
+	odgovor.json( JSON.stringify(preberiKonfiguracijskoDatoteko()) ); 
 })
 
 streznik.get("*", function(zahteva, odgovor){
@@ -109,3 +145,51 @@ function primerjajDvaHasha(hash1,hash2){
 	}
 	return false;
 }
+
+/*
+function inicializirajSenzor(){
+	return sensorLib.initialize(22, 4);
+}
+
+function pridobiMeritev(){
+	var readout = senzorLib.read();
+	var meritev={
+		temperatura : readout.temperature.toFixed(2),
+		vlaga : readout.humidity.toFixed(2) 
+	}
+	return meritev;
+}*/
+
+function preberiKonfiguracijskoDatoteko(){
+	var konfiguracija = JSON.parse(fs.readFileSync('config/config').toString());
+	console.log(konfiguracija);
+	return konfiguracija;
+}
+
+	/*var konfiguracija = {
+	
+		senzor:	{
+			statusSenzorja : "0",
+			mejnaTemperatura : "27",
+			intervalBranjaSenzorja : "10"
+		},
+
+		podatkovnaBaza: {
+			ipNaslov : "", 
+			uporabniskoIme : "",
+			geslo : "",
+			statusAvtomatskegaBrisanja : "0",
+			starostZapisov :	""
+		},
+
+		obvescanje: {
+			intervalPosiljanjaEMAIL: "5",
+			intervalPosiljanjaSMS : "5",
+			smtpIP : "",
+			smtpVrata : "25",
+			emailNaslovi : ["enej.ravbar@siol.net"],
+			SMSUporabniskoIme : "enej",
+			SMSGeslo : "geslo",
+			telefonskeStevilke : ["031754700"]
+		}
+	};*/

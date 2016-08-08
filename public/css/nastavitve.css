@@ -33,6 +33,12 @@ li a:hover {
     color:white;
     text-decoration: none;
 }
+li a:active {
+	cursor:pointer;
+    background-color: #111;
+    color:white;
+    text-decoration: none;
+}
     .onoffswitch {
         position: relative; width: 63px;
         -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
