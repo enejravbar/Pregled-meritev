@@ -5,8 +5,9 @@ var expressSession = require('express-session');
 var path = require('path');
 var bodyParser= require('body-parser')
 var crypto = require('crypto');
+var nodemailer = require('nodemailer');
 
-//var senzorLib = require('node-dht-sensor');
+var senzorLib = require('node-dht-sensor');
 
 var streznik = express();
 
@@ -31,6 +32,7 @@ httpsServer.listen(443,function(){
 });
 
 
+
 streznik.use(express.static('public'));
 
 //  // Skrivni ključ za podpisovanje piškotkov
@@ -46,6 +48,17 @@ streznik.use(
   })
 );
 
+var smtpConfig = {
+    host: '10.10.101.100',
+    port: 25,
+    secure: false,
+};
+
+var transporter = nodemailer.createTransport(smtpConfig);
+
+var trenutnaMeritev; 
+pridobiMeritev(5000);
+
 // preusmeritev na HTTPS----------------------------------------
 
 streznik.use(function(req, res, next) {
@@ -56,6 +69,20 @@ streznik.use(function(req, res, next) {
 })
 
 //--------------------------------------------------------------
+
+var io = require('socket.io').listen(httpsServer);
+
+io.sockets.on('connection', function (socket) {
+
+    console.log('Klient povezan!');
+    if(trenutnaMeritev!=null){
+    	 socket.emit('meritev', trenutnaMeritev);
+    }  
+	setInterval(function(){
+		socket.emit('meritev', trenutnaMeritev);
+	},2000);
+
+});
 
 streznik.get("/", function(zahteva, odgovor){
 
@@ -89,8 +116,8 @@ streznik.post("/checkLogin", function(zahteva, odgovor){
 	var uporabniskoIme = zahteva.body.username;
 	var geslo = zahteva.body.password;
 
-	var gesloHash=ustvariHash(geslo);
-	console.log("Hash: " + gesloHash);
+	
+
 	// dostop do uporabniških podatkov zahteva.body.username in zahteva.body.password
 	
 	console.log("username "+zahteva.body.username + "\npassword "+zahteva.body.password);
@@ -134,37 +161,56 @@ streznik.get("*", function(zahteva, odgovor){
 	}
 })
 
-function ustvariHash(besedilo){
-	var hash = crypto.createHash('sha256').update(besedilo).digest("hex");
-	return hash;
-}
-
-function primerjajDvaHasha(hash1,hash2){
-	if(hash1==hash2){
-		return true;
-	}
-	return false;
-}
-
-/*
-function inicializirajSenzor(){
-	return sensorLib.initialize(22, 4);
-}
-
-function pridobiMeritev(){
-	var readout = senzorLib.read();
-	var meritev={
-		temperatura : readout.temperature.toFixed(2),
-		vlaga : readout.humidity.toFixed(2) 
-	}
-	return meritev;
-}*/
 
 function preberiKonfiguracijskoDatoteko(){
 	var konfiguracija = JSON.parse(fs.readFileSync('config/config').toString());
 	console.log(konfiguracija);
 	return konfiguracija;
 }
+
+function inicializirajSenzor(){
+	return senzorLib.initialize(22, 4);
+}
+
+function pridobiMeritev(interval){
+	if(inicializirajSenzor()){
+		console.log("Inicializirano!")
+		setInterval(function(){
+			console.log("Prebrano!");
+			var readout = senzorLib.read();
+			trenutnaMeritev={
+				temperatura : readout.temperature.toFixed(1),
+				vlaga : readout.humidity.toFixed(1) 
+			}
+		},interval);	
+		
+	}
+}
+
+
+	//----------------------- EMAIL-OBVESCANJE -------------------------
+/*
+	var mailData = {
+	    from: 'enej.ravbar@siol.net',
+	    to: 'enejcobra@gmail.com',
+	    subject: 'Obvestilo o pregrevanju (Pivka Perutninarstvo d.d.)',
+	    html: '<br>Testščćžđ</b>'
+	};
+
+	transporter.sendMail(mailData, function(err){
+		if(!err){
+			console.log("Email uspešno poslan!");
+		}else{
+			console.log("Napaka pri pošiljanju!")
+		}
+	});
+	
+*/
+
+
+
+
+
 
 	/*var konfiguracija = {
 	

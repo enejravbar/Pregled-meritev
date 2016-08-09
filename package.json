@@ -10,8 +10,9 @@
     "http":"latest",
     "https":"latest",
     "body-parser":"latest",
-    "crypto" : "latest",
     "nodemon" : "latest",
-    "node-dht-sensor" : "latest"
+    "node-dht-sensor" : "latest",
+    "nodemailer" : "latest",
+    "socket.io" : "latest"
   }
 }
