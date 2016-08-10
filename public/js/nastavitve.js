@@ -77,7 +77,7 @@ function prikaziTrenutnoKonfiguracijo(konfiguracija){
 	});
 
 	$("#intervalBranjaSenzorja option").each(function(){
-		if($(this).val()==senzor.intervalBranjaSenzorja){
+		if($(this).val()==senzor.intervalBranjaSenzorja/1000){
 			$(this).prop("selected",true);
 		}
 	});
@@ -99,13 +99,13 @@ function prikaziTrenutnoKonfiguracijo(konfiguracija){
 	});
 
 	$("#interval-posiljanja-emailov option").each(function(){
-		if($(this).val()==obvescanje.intervalPosiljanjaEMAIL){
+		if($(this).val()==obvescanje.intervalPosiljanjaEMAIL/60000){
 			$(this).prop("selected",true);
 		}
 	});
 
 	$("#interval-posiljanja-smsjev option").each(function(){
-		if($(this).val()==obvescanje.intervalPosiljanjaSMS){
+		if($(this).val()==obvescanje.intervalPosiljanjaSMS/60000){
 			$(this).prop("selected",true);
 		}
 	});
@@ -185,7 +185,7 @@ function pridobiNastavitve(){
 			senzor:	{
 				statusSenzorja : statusSenzorja,
 				mejnaTemperatura : mejnaTemperatura,
-				intervalBranjaSenzorja : intervalBranjaSenzorja
+				intervalBranjaSenzorja : intervalBranjaSenzorja*1000
 			},
 
 			podatkovnaBaza: {
@@ -198,8 +198,8 @@ function pridobiNastavitve(){
 			},
 
 			obvescanje: {
-				intervalPosiljanjaEMAIL: intervalPosiljanjaEMAIL,
-				intervalPosiljanjaSMS : intervalPosiljanjaSMS,
+				intervalPosiljanjaEMAIL: intervalPosiljanjaEMAIL*60000,
+				intervalPosiljanjaSMS : intervalPosiljanjaSMS*60000,
 				smtpIP : smtpIP,
 				smtpVrata : smtpVrata,
 				emailNaslovi : emailNaslovi,

@@ -6,6 +6,7 @@ var path = require('path');
 var bodyParser= require('body-parser')
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
+var mysql = require('mysql');
 
 var senzorLib = require('node-dht-sensor');
 
@@ -31,7 +32,9 @@ httpsServer.listen(443,function(){
 	console.log("Streznik posluša na vratih 443.");
 });
 
-
+var konfiguracija;
+var trenutnaMeritev; 
+main();
 
 streznik.use(express.static('public'));
 
@@ -48,16 +51,38 @@ streznik.use(
   })
 );
 
+var pool = mysql.createPool({
+    host: konfiguracija.podatkovnaBaza.ipNaslov,
+    user: konfiguracija.podatkovnaBaza.uporabniskoIme,
+    password: konfiguracija.podatkovnaBaza.geslo,
+    database: 'meritvePivkaPerutninarstvo',
+    charset: 'UTF8_GENERAL_CI'
+});
+
 var smtpConfig = {
-    host: '10.10.101.100',
-    port: 25,
+    host: konfiguracija.obvescanje.smtpIP,
+    port: konfiguracija.obvescanje.smtpVrata,
     secure: false,
 };
 
 var transporter = nodemailer.createTransport(smtpConfig);
 
-var trenutnaMeritev; 
-pridobiMeritev(5000);
+
+
+function main(){
+	
+	konfiguracija = preberiKonfiguracijskoDatoteko();
+	if(konfiguracija==-1){
+		console.log("Napaka na konfiguracijski datoteki!");
+		return;
+	}else{
+		if(konfiguracija.senzor.statusSenzorja == 1){
+			pridobiMeritev(konfiguracija.senzor.intervalBranjaSenzorja);	
+		}
+			
+	}
+
+}
 
 // preusmeritev na HTTPS----------------------------------------
 
@@ -76,11 +101,18 @@ io.sockets.on('connection', function (socket) {
 
     console.log('Klient povezan!');
     if(trenutnaMeritev!=null){
-    	 socket.emit('meritev', trenutnaMeritev);
+    	socket.emit('meritev', trenutnaMeritev);
     }  
 	setInterval(function(){
-		socket.emit('meritev', trenutnaMeritev);
-	},2000);
+		if(trenutnaMeritev!=null){
+			socket.emit('meritev', trenutnaMeritev);
+		}
+	},konfiguracija.senzor.intervalBranjaSenzorja/2);
+
+	pridobiMeritveIzBaze(socket);
+	setInterval(function(){
+		pridobiMeritveIzBaze(socket);
+	},10000);
 
 });
 
@@ -163,9 +195,13 @@ streznik.get("*", function(zahteva, odgovor){
 
 
 function preberiKonfiguracijskoDatoteko(){
-	var konfiguracija = JSON.parse(fs.readFileSync('config/config').toString());
-	console.log(konfiguracija);
-	return konfiguracija;
+	try{
+		var konfiguracija = JSON.parse(fs.readFileSync('config/config').toString());
+		return konfiguracija;	
+	}catch(e){
+		return -1;
+	}
+	
 }
 
 function inicializirajSenzor(){
@@ -173,44 +209,209 @@ function inicializirajSenzor(){
 }
 
 function pridobiMeritev(interval){
+	var kontrola=0;
+
 	if(inicializirajSenzor()){
-		console.log("Inicializirano!")
+
+		var readout = readout = senzorLib.read();
+		var novaTemperatura = readout.temperature.toFixed(1);
+
+		if(trenutnaMeritev == null){
+			if(novaTemperatura == 0.0){
+				console.log("Neveljavna temperatura");
+				pokliciFuncijeZaObvescanje();
+			}else{
+				trenutnaMeritev={
+					temperatura : readout.temperature.toFixed(1),
+					vlaga : readout.humidity.toFixed(1) 
+				}
+				console.log("Meritev temperatura: " + trenutnaMeritev.temperatura + " Meritev vlaga: " + trenutnaMeritev.vlaga);
+				pokliciFuncijeZaObvescanje();
+			}
+		}else{
+			if(Math.abs(novaTemperatura- trenutnaMeritev) >15){
+				console.log("Neveljavna temperatura");
+				pokliciFuncijeZaObvescanje();
+			}else{
+				trenutnaMeritev={
+					temperatura : readout.temperature.toFixed(1),
+					vlaga : readout.humidity.toFixed(1) 
+				}
+				console.log("Meritev temperatura: " + trenutnaMeritev.temperatura + " Meritev vlaga: " + trenutnaMeritev.vlaga);
+				pokliciFuncijeZaObvescanje();
+			}
+		}
+			
 		setInterval(function(){
-			console.log("Prebrano!");
-			var readout = senzorLib.read();
+			preberiSenzor();
+		}, interval);
+
+	}
+}
+
+function preberiSenzor(){
+	
+	var readout = readout = senzorLib.read();
+	var novaTemperatura = readout.temperature.toFixed(1);
+
+	if(trenutnaMeritev == null){
+		if(novaTemperatura == 0.0){
+			console.log("Neveljavna temperatura");
+		}else{
 			trenutnaMeritev={
 				temperatura : readout.temperature.toFixed(1),
 				vlaga : readout.humidity.toFixed(1) 
 			}
-		},interval);	
-		
+			console.log("Meritev temperatura: " + trenutnaMeritev.temperatura + " Meritev vlaga: " + trenutnaMeritev.vlaga);
+			
+		}
+	}else{
+		if( (Math.abs(novaTemperatura- trenutnaMeritev) > 15) && novaTemperatura == 0.0 ){
+			console.log("Neveljavna temperatura");
+		}else{
+			trenutnaMeritev={
+				temperatura : readout.temperature.toFixed(1),
+				vlaga : readout.humidity.toFixed(1) 
+			}
+			console.log("Meritev temperatura: " + trenutnaMeritev.temperatura + " Meritev vlaga: " + trenutnaMeritev.vlaga);
+		}
 	}
 }
 
+function pokliciFuncijeZaObvescanje(){
+	emailObvescanje(konfiguracija.senzor.mejnaTemperatura, 10000); // na 2 sekundi preveri trenutno temperaturo
+}
 
-	//----------------------- EMAIL-OBVESCANJE -------------------------
-/*
-	var mailData = {
-	    from: 'enej.ravbar@siol.net',
-	    to: 'enejcobra@gmail.com',
-	    subject: 'Obvestilo o pregrevanju (Pivka Perutninarstvo d.d.)',
-	    html: '<br>Testščćžđ</b>'
-	};
 
-	transporter.sendMail(mailData, function(err){
-		if(!err){
-			console.log("Email uspešno poslan!");
-		}else{
-			console.log("Napaka pri pošiljanju!")
-		}
-	});
+//----------------------- EMAIL-OBVESCANJE -------------------------
+function emailObvescanje(mejnaTemperatura, intervalPreverjanja){
+	console.log("Zaganjam email obveščanje!");
 	
-*/
+	/*setInterval(function(){
+		if(trenutnaMeritev.temperatura > mejnaTemperatura){
+			posljiEmail();
+
+		}			
+				
+	}, intervalPreverjanja); // vsake dve sekundi preveri temperaturo*/
+}
+
+function posljiEmail(){
+
+		var mailData = {
+		    from: 'senzorPivkaPerutninasrtvo@njami.si',
+		    to: pridobiSeznamNaslovnikov(),
+		    subject: 'Obvestilo o pregrevanju (Pivka Perutninarstvo d.d.)',
+		    html: 'Prišlo je do pregrevanja!'
+		};
+
+		transporter.sendMail(mailData, function(err){
+			if(!err){
+				console.log("Email uspešno poslan na naslove " + mailData.to);
+			}else{
+				console.log("Napaka pri pošiljanju!")
+			}
+		});
+}
+
+
+function zapisiVBazo(temperatura, vlaga){
+	
+	pool.getConnection(function(napaka1, connection) {
+		var datum = pridobiTrenutniDatum();
+        if (!napaka1) {
+        	console.log('INSERT INTO meritve (datum,temperatura,vlaga) VALUES (\''+datum+'\',\''+temperatura+'\',\''+vlaga+'\');');
+            connection.query('INSERT INTO meritve (datum,temperatura,vlaga) VALUES (\''+datum+'\',\''+temperatura+'\',\''+vlaga+'\');', function(napaka2, info) {
+                if (!napaka2) {
+                    console.log("Uspešno zapisano v bazo!");
+                } else {
+                    console.log("Napaka pri pisanju v bazo!"+napaka2);
+                }
+
+            });
+
+            connection.release();
+
+        } else {
+            console.log("Napaka pri pisanju v bazo!" + napaka1);
+        }
+    });
+}
 
 
 
+function pridobiMeritveIzBaze(socket){
+	pool.getConnection(function(napaka1, connection) {
+        if (!napaka1) {
+            connection.query('SELECT datum,temperatura,vlaga FROM meritve', function(napaka2, vrstice) {
+                if (!napaka2) {
+                	//console.log(vrstice);
+                    socket.emit('podatki', vrstice);	
+                } else {
+                   
+                }
 
+            });
+            connection.release();
+        } else {
+            console.log("Napaka pri branju iz baze!" + napaka1);
+        }
+    });
+}
 
+function pridobiTrenutniDatum(){
+
+	// format YYYY-MM-DD HH:MM:SS
+	
+	var d = new Date();
+
+	var mesec = d.getMonth();
+	var dan = d.getDate();
+	var ura = d.getHours();
+	var minute = d.getMinutes();
+	var sekunde = d.getSeconds();
+
+	if(mesec <10){
+		mesec="0"+mesec.toString();
+	}
+	if(dan <10){
+		dan="0"+dan.toString();
+	}
+	if(ura <10){
+		ura="0"+ura.toString();
+	}
+	if(minute <10){
+		minute="0"+minute.toString();
+	}
+	if(sekunde <10){
+		sekunde="0"+sekunde.toString();
+	}
+
+	var datum = d.getFullYear()+"-"+mesec+"-"+dan+" "+ura+":"+minute+":"+sekunde;
+	console.log(datum);
+
+	return datum;
+}
+
+	
+
+function pridobiSeznamNaslovnikov(){
+	var seznam = "";
+	for(var i=0; i<konfiguracija.obvescanje.emailNaslovi.length; i++){
+		if(i==konfiguracija.obvescanje.emailNaslovi.length-1){
+			seznam+= konfiguracija.obvescanje.emailNaslovi[i];
+			break;
+		}
+		seznam+= konfiguracija.obvescanje.emailNaslovi[i]+",";
+	}
+	console.log("Seznam prejemnikov: "+ seznam);
+	return seznam;
+}
+	
+function zakasnitev(stSekund){
+
+	setTimeout(function(){},stSekund*1000);
+}	
 
 	/*var konfiguracija = {
 	

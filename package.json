@@ -13,6 +13,7 @@
     "nodemon" : "latest",
     "node-dht-sensor" : "latest",
     "nodemailer" : "latest",
-    "socket.io" : "latest"
-  }
+    "socket.io" : "latest",
+    "mysql" : "latest"  
+}
 }
