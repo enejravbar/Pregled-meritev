@@ -7,7 +7,7 @@ var bodyParser= require('body-parser')
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var mysql = require('mysql');
-var Worker = require('webworker-threads').Worker;
+var exec = require('child_process').exec;
 
 var senzorLib = require('node-dht-sensor');
 
@@ -78,11 +78,20 @@ function main(){
 
 		if(konfiguracija.senzor.statusSenzorja == 1){
 			pridobiMeritev(konfiguracija.senzor.intervalBranjaSenzorja);
+			
 			if(konfiguracija.podatkovnaBaza.statusAvtomatskegaPisanja == 1){
 				avtomatskoPisanjeVBazo(60000);		
 			}else{
 				console.log("Avtomatsko pisanje v bazo je IZKLOPLJENO.");
 			}
+
+			if(konfiguracija.podatkovnaBaza.statusAvtomatskegaBrisanja == 1){
+				avtomatskoBrisanjeZapisov();
+			}else{
+				console.log("Avtomatsko brisanje zapisov iz baze je IZKLOPLJENO.");
+			}
+
+			
 			
 		}
 			
@@ -217,6 +226,36 @@ streznik.post("/izbrisiVseZapise", function(zahteva,odgovor){
 	    });
 })
 
+streznik.post("/brisanjeZapisov", function(zahteva,odgovor){
+	pool.getConnection(function(napaka1, connection) {
+			
+	        if (!napaka1) {
+	        	console.log('DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+zahteva.body.stDni + ' DAY);');
+	            connection.query('DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+zahteva.body.stDni + ' DAY);', function(napaka2, info) {
+	                if (!napaka2) {
+	                    odgovor.json({
+	                    	uspeh:true
+	                    });
+	                } else {
+	                    odgovor.json({
+	                    	uspeh:false,
+	                    	odgovor:"Napaka! Brisanje zapisov ni bilo uspešno!"
+	                    });
+	                }
+
+	            });
+
+	            connection.release();
+
+	        } else {
+	            odgovor.json({
+                	uspeh:false,
+                	odgovor:"Napaka pri vzpostavitvi povezave z podatkovno bazo!"
+                });
+	        }
+	    });
+})
+
 streznik.post("/pridobiKonfiguracijo", function(zahteva, odgovor){
 	
 	odgovor.json( JSON.stringify(preberiKonfiguracijskoDatoteko()) ); 
@@ -229,7 +268,6 @@ streznik.get("*", function(zahteva, odgovor){
 		odgovor.redirect("/");
 	}
 })
-
 
 function preberiKonfiguracijskoDatoteko(){
 	try{
@@ -258,6 +296,11 @@ function pridobiMeritev(interval){
 			emailObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000); // na 2 sekundi preveri trenutno temperaturo
 		}else{
 			console.log("Email obveščanje je ONEMOGOČENO!")
+		}
+		if(konfiguracija.obvescanje.statusSMSObvescanja){
+			smsObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000);
+		}else{
+			console.log("SMS obveščanje je ONEMOGOČENO!")
 		}
 
 		if(trenutnaMeritev == null){
@@ -364,8 +407,6 @@ function emailObvescanje(mejnaTemperatura, intervalPreverjanja){
 	}, intervalPreverjanja); // vsake dve sekundi preveri temperaturo*/
 }
 
-
-
 function posljiEmail(transporter){
 
 	var mailData = {
@@ -385,6 +426,60 @@ function posljiEmail(transporter){
 		
 }
 
+//----------------------- SMS-OBVESCANJE -------------------------
+function smsObvescanje(mejnaTemperatura, intervalPreverjanja){
+	console.log("Zaganjam SMS obveščanje!");
+
+	var prvic = true;
+	var casZadnjeOdposiljke; 
+	var trenutniCas;
+
+	setInterval(function(){
+		
+		if(trenutnaMeritev != null){
+			if(trenutnaMeritev.temperatura > mejnaTemperatura){
+				
+				if(prvic){
+					prvic = false;
+					casZadnjeOdposiljke = new Date();
+					console.log("casZadnjeOdposiljke = " +casZadnjeOdposiljke);
+					posljiSMS();
+				}else{
+					trenutniCas= new Date();
+					if( (trenutniCas-casZadnjeOdposiljke) >= konfiguracija.obvescanje.intervalPosiljanjaSMS){
+						posljiSMS();
+						casZadnjeOdposiljke = trenutniCas;
+					}
+					
+				}
+				
+
+			}
+		}
+	}, intervalPreverjanja); // vsake dve sekundi preveri temperaturo*/
+}
+
+function posljiSMS(){
+	// php poslji.php 20.5 zeleznikm murnovapivkap telSt.telSt.telSt
+
+	var cmd = 'php ./SMS-obvescevalec.php ' + trenutnaMeritev.temperatura +" "+ konfiguracija.obvescanje.SMSUporabniskoIme +" "+ konfiguracija.obvescanje.SMSGeslo +" "+ pridobiSeznamTelStevilk();
+	console.log(cmd);
+	exec(cmd,function(error, stdout, stderr){
+		console.log(stdout);
+	});
+}
+
+function pridobiSeznamTelStevilk(){
+	var nizTelSt = "";
+	for(var i=0; i<konfiguracija.obvescanje.telefonskeStevilke.length; i++){
+		if(i==konfiguracija.obvescanje.telefonskeStevilke.length-1){
+			nizTelSt+=konfiguracija.obvescanje.telefonskeStevilke[i];
+			break;
+		}
+		nizTelSt+=konfiguracija.obvescanje.telefonskeStevilke[i]+".";
+	}
+	return nizTelSt;
+}
 
 function zapisiVBazo(){
 	
@@ -419,14 +514,43 @@ function avtomatskoPisanjeVBazo(interval){
 	},interval);
 }
 
+function avtomatskoBrisanjeZapisov(){
+	pool.getConnection(function(napaka1, connection) {
+		console.log("Avtomatsko brisanje starih zapisov je OMOGOČENO!");		
+        if (!napaka1) {
+        	console.log('Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+ konfiguracija.podatkovnaBaza.starostZapisov + ' DAY);');
+            connection.query('DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+konfiguracija.podatkovnaBaza.starostZapisov  + ' DAY);', function(napaka2, info) {
 
+            });
+
+            connection.release();
+
+        } 
+    });
+	setInterval(function(){
+		
+		pool.getConnection(function(napaka1, connection) {
+				
+	        if (!napaka1) {
+	        	console.log('Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+ konfiguracija.podatkovnaBaza.starostZapisov + ' DAY);');
+	            connection.query('DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+konfiguracija.podatkovnaBaza.starostZapisov  + ' DAY);', function(napaka2, info) {
+
+	            });
+
+	            connection.release();
+
+	        } 
+	    });
+	},5*60*1000); // vsakih 5 minut pobrisi stare zapise
+		
+}
 
 function pridobiMeritveIzBaze(socket){
 	pool.getConnection(function(napaka1, connection) {
         if (!napaka1) {
             connection.query('SELECT datum,temperatura,vlaga FROM meritve', function(napaka2, vrstice) {
                 if (!napaka2) {
-                	//console.log(vrstice);
+                	//console.log(vrstice[0]);
                     socket.emit('podatki', vrstice);	
                 } else {
                    
@@ -446,7 +570,7 @@ function pridobiTrenutniDatum(){
 	
 	var d = new Date();
 
-	var mesec = d.getMonth();
+	var mesec = d.getMonth()+1;
 	var dan = d.getDate();
 	var ura = d.getHours();
 	var minute = d.getMinutes();
@@ -488,36 +612,3 @@ function pridobiSeznamNaslovnikov(){
 	console.log("Seznam prejemnikov: "+ seznam);
 	return seznam;
 }
-	
-function zakasnitev(stSekund){
-
-	setTimeout(function(){},stSekund*1000);
-}	
-
-	/*var konfiguracija = {
-	
-		senzor:	{
-			statusSenzorja : "0",
-			mejnaTemperatura : "27",
-			intervalBranjaSenzorja : "10"
-		},
-
-		podatkovnaBaza: {
-			ipNaslov : "", 
-			uporabniskoIme : "",
-			geslo : "",
-			statusAvtomatskegaBrisanja : "0",
-			starostZapisov :	""
-		},
-
-		obvescanje: {
-			intervalPosiljanjaEMAIL: "5",
-			intervalPosiljanjaSMS : "5",
-			smtpIP : "",
-			smtpVrata : "25",
-			emailNaslovi : ["enej.ravbar@siol.net"],
-			SMSUporabniskoIme : "enej",
-			SMSGeslo : "geslo",
-			telefonskeStevilke : ["031754700"]
-		}
-	};*/

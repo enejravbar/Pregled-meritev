@@ -43,7 +43,7 @@ function regulirajSteviloPodatkov(tabelaMeritev,omejitev){
 	if(tabelaMeritev.length>omejitev && tabelaMeritev.length !=0 ){
 		var interval = parseInt(tabelaMeritev.length / omejitev);
 		var stMeritev = 0;
-		for(var i=tabelaMeritev.length-1; i>=0; i=i-interval){
+		for(var i= tabelaMeritev.length-1; i>=0; i=i-interval){
 			if(stMeritev==omejitev){
 
 				break;

@@ -161,8 +161,8 @@
                            <tr>
                               <td style="border:none;">
                                  <span>
-                                    Vklopi avtomatsko brisanje izpisov starejših od
-                                    <select  id="avtomatskoBrisanje" value="Obstoječi uporabniki" style="width:150px; color:black; margin-left:5px;">
+                                    Vklopi avtomatsko brisanje zapisov starejših od
+                                    <select  id="select-avtomatskoBrisanje" value="Obstoječi uporabniki" style="width:150px; color:black; margin-left:5px;">
                                       
                                        <option value="1">1 dneva</option>
                                        <option value="2">2 dni</option>
@@ -189,7 +189,7 @@
                            <td>
                               <span>
                                  Izbriši vse zapise iz podatkovne baze starejše od  
-                                 <select  id="preberiPredlogoBolnika" value="Obstoječi uporabniki" style="width:150px; color:black; margin-left:5px;">
+                                 <select  id="select-rocnoBrisanje" value="Obstoječi uporabniki" style="width:150px; color:black; margin-left:5px;">
                                        <option value="1">1 dneva</option>
                                        <option value="2">2 dni</option>
                                        <option value="4">4 dni</option>
@@ -201,7 +201,7 @@
                               </span>
                            </td>
                            <td>
-                              <button id="gumb-registriraj" type="submit" class="btn btn-danger btn-sm" style="float:right; margin-right:12px;">Izbriši</button>
+                              <button id="gumb-rocnoBrisanje" type="submit" class="btn btn-danger btn-sm" style="float:right; margin-right:12px;">Izbriši</button>
                            </td>
                           </tr>
                            <tr>
@@ -220,7 +220,7 @@
                            </tr>
                         </tbody>
                      </table>
-                      <span id="podBaza-okvir" class="fade-in obvestilo bg-success" style=" float:right; padding:4px;margin-top:10px; margin-right:4px;">  
+                      <span id="podBaza-okvir" class="fade-in obvestilo bg-success" style=" display:none;float:right; padding:6px; margin-right:4px;">  
                   </span>
                   </div>
                </div>

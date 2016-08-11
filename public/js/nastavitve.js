@@ -1,5 +1,5 @@
 
-var timer,timer1;
+var timer,timer1,timer2;
 
 $(document).ready(function() {
 
@@ -8,6 +8,7 @@ $(document).ready(function() {
 
   posredujNastavitveStrezniku();
 
+  gumbRocnoBrisanje();
   izbrisiVseZapise();
 
   dodajanjeEmailov();
@@ -86,7 +87,14 @@ function prikaziTrenutnoKonfiguracijo(konfiguracija){
 
 	$("#ip-naslov").val(podatkovnaBaza.ipNaslov);
 	$("#uporabnisko-ime").val(podatkovnaBaza.uporabniskoIme);
+
 	$("#geslo").val(podatkovnaBaza.geslo);
+
+	if(podatkovnaBaza.statusAvtomatskegaPisanja==1){
+		$("#statusAvtomatskegaPisanja").prop("checked",true);
+	}else{
+		$("#statusAvtomatskegaPisanja").prop("checked",false);
+	}
 
 	if(podatkovnaBaza.statusAvtomatskegaBrisanja==1){
 		$("#statusAvtomatskegaBrisanja").prop("checked",true);
@@ -94,11 +102,23 @@ function prikaziTrenutnoKonfiguracijo(konfiguracija){
 		$("#statusAvtomatskegaBrisanja").prop("checked",false);
 	}
 
-	$("#avtomatskoBrisanje option").each(function(){
+	$("#select-avtomatskoBrisanje option").each(function(){
 		if($(this).val()==podatkovnaBaza.starostZapisov){
 			$(this).prop("selected",true);
 		}
 	});
+
+	if(obvescanje.statusEmailObvescanja==1){
+		$("#statusEmailObvescanja").prop("checked",true);
+	}else{
+		$("#statusEmailObvescanja").prop("checked",false);
+	}
+
+	if(obvescanje.statusSMSObvescanja==1){
+		$("#statusSMSObvescanja").prop("checked",true);
+	}else{
+		$("#statusSMSObvescanja").prop("checked",false);
+	}
 
 	$("#interval-posiljanja-emailov option").each(function(){
 		if($(this).val()==obvescanje.intervalPosiljanjaEMAIL/60000){
@@ -164,7 +184,7 @@ function izbrisiVseZapise(){
 						$("#podBaza-okvir").css({
 						"display" : "inline"
 						});
-						$("#podBaza-okvir").html("Zapisi so bilo uspešno shranjeni!");
+						$("#podBaza-okvir").html("Zapisi so bilo uspešno izbrisani!");
 
 						timer1 = setTimeout(function() {
 			            $("#podBaza-okvir").hide('slow');
@@ -184,6 +204,67 @@ function izbrisiVseZapise(){
 		    }
 		});
 	})
+}
+
+function gumbRocnoBrisanje(){
+	var stDni;
+	$("#gumb-rocnoBrisanje").click(function(){
+		$("#select-rocnoBrisanje option").each(function(){
+			if($(this).prop("selected")){
+				stDni = $(this).val();
+				console.log("Izbrano je bilo " + stDni +" stevilo dni");
+				brisanjeZapisov(stDni);
+			}
+		});
+	});
+}
+
+/*function avtomatskoBrisanjeZapisov(){
+	brisanjeZapisov(konfiguracija.podatkovnaBaza.starostZapisov);
+	setInterval(function(){
+		brisanjeZapisov(konfiguracija.podatkovnaBaza.starostZapisov);
+	}, (5*60*1000));	
+}*/
+
+function brisanjeZapisov(stDni){
+	$.ajax({
+	    type: "POST",
+	    url: "/brisanjeZapisov",
+	    dataType: 'json',
+	    contentType: 'application/json', 
+	    async: true,
+	    data: JSON.stringify({stDni:stDni}),
+
+	    success: function (odgovor){
+	    	if(odgovor.uspeh){
+
+	            clearTimeout(timer2);
+	            $("#podBaza-okvir").attr({"class" : "fade-in obvestilo bg-success"});
+				$("#podBaza-okvir").css({
+				"display" : "inline"
+				});
+				$("#podBaza-okvir").html("Zapisi so bilo uspešno izbrisani!");
+
+				timer2 = setTimeout(function() {
+	            $("#podBaza-okvir").hide('slow');
+	        	}, 4000);
+	        }else{
+	        	clearTimeout(timer2);
+	            $("#podBaza-okvir").attr({"class" : "fade-in obvestilo bg-danger"});
+				$("#podBaza-okvir").css({
+				"display" : ""
+				});
+				$("#podBaza-okvir").html(odgovor.sporocilo);
+
+				timer2 = setTimeout(function() {
+	            $("#podBaza-okvir").hide('slow');
+	        	}, 4000);
+	        }
+	    },
+	    error: function (napaka){
+	    	
+	    }	
+	});
 }
 
 function pridobiNastavitve(){
@@ -213,7 +294,7 @@ function pridobiNastavitve(){
 		if($("#statusAvtomatskegaBrisanja").prop("checked")){
 			statusAvtomatskegaBrisanja=1;
 		}
-		var starostZapisov =$("#avtomatskoBrisanje option:selected").val(); 
+		var starostZapisov =$("#select-avtomatskoBrisanje option:selected").val(); 
 
 		// obveščanje
 
