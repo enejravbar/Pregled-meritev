@@ -1,5 +1,5 @@
 
-var timer;
+var timer,timer1;
 
 $(document).ready(function() {
 
@@ -7,6 +7,8 @@ $(document).ready(function() {
   spremeniKategorijoNastavitev();
 
   posredujNastavitveStrezniku();
+
+  izbrisiVseZapise();
 
   dodajanjeEmailov();
   brisanjeEmailov();
@@ -45,18 +47,18 @@ function spremeniKategorijoNastavitev(){
 
 function pridobiStrezniskoKonfiguracijo(){
 	$.ajax({
-			    type: "POST",
-			    url: "/pridobiKonfiguracijo",
-			    dataType: 'json',
-			    contentType: 'application/json', 
-			    async: true,
-			    data: null,
+	    type: "POST",
+	    url: "/pridobiKonfiguracijo",
+	    dataType: 'json',
+	    contentType: 'application/json', 
+	    async: true,
+	    data: null,
 
-			    success: function (odgovor){
-		          	var konfiguracija=JSON.parse(odgovor);  
-			        prikaziTrenutnoKonfiguracijo(konfiguracija);
-			    }
-			});
+	    success: function (odgovor){
+          	var konfiguracija=JSON.parse(odgovor);  
+	        prikaziTrenutnoKonfiguracijo(konfiguracija);
+	    }
+	});
 }
 
 function prikaziTrenutnoKonfiguracijo(konfiguracija){
@@ -144,6 +146,46 @@ function prikaziTrenutnoKonfiguracijo(konfiguracija){
 
 }
 
+function izbrisiVseZapise(){
+	$("#gumb-izbrisiVse").click(function(){
+		$.ajax({
+		    type: "POST",
+		    url: "/izbrisiVseZapise",
+		    dataType: 'json',
+		    contentType: 'application/json', 
+		    async: true,
+		    data: null,
+
+		    success: function (odgovor){
+	          	if(odgovor.uspeh){
+
+			            clearTimeout(timer1);
+			            $("#podBaza-okvir").attr({"class" : "fade-in obvestilo bg-success"});
+						$("#podBaza-okvir").css({
+						"display" : "inline"
+						});
+						$("#podBaza-okvir").html("Zapisi so bilo uspešno shranjeni!");
+
+						timer1 = setTimeout(function() {
+			            $("#podBaza-okvir").hide('slow');
+			        	}, 4000);
+		            }else{
+		            	clearTimeout(timer1);
+			            $("#podBaza-okvir").attr({"class" : "fade-in obvestilo bg-danger"});
+						$("#podBaza-okvir").css({
+						"display" : ""
+						});
+						$("#podBaza-okvir").html(odgovor.sporocilo);
+
+						timer1 = setTimeout(function() {
+			            $("#podBaza-okvir").hide('slow');
+			        	}, 4000);
+		            }
+		    }
+		});
+	})
+}
+
 function pridobiNastavitve(){
 	
 
@@ -162,6 +204,11 @@ function pridobiNastavitve(){
 		var	uporabniskoIme = $("#uporabnisko-ime").val();
 		var	geslo = $("#geslo").val();
 
+		var statusAvtomatskegaPisanja =0;
+		if($("#statusAvtomatskegaPisanja").prop("checked")){
+			statusAvtomatskegaPisanja=1;
+		} 
+
 		var statusAvtomatskegaBrisanja = 0;
 		if($("#statusAvtomatskegaBrisanja").prop("checked")){
 			statusAvtomatskegaBrisanja=1;
@@ -169,6 +216,17 @@ function pridobiNastavitve(){
 		var starostZapisov =$("#avtomatskoBrisanje option:selected").val(); 
 
 		// obveščanje
+
+		var statusEmailObvescanja = 0;
+		if($("#statusEmailObvescanja").prop("checked")){
+			statusEmailObvescanja=1;
+		}
+
+		var statusSMSObvescanja = 0;
+		if($("#statusSMSObvescanja").prop("checked")){
+			statusSMSObvescanja=1;
+		}
+
 		var	intervalPosiljanjaEMAIL = $("#interval-posiljanja-emailov option:selected").val(); ;
 		var	intervalPosiljanjaSMS = $("#interval-posiljanja-smsjev option:selected").val(); ;
 
@@ -192,12 +250,15 @@ function pridobiNastavitve(){
 				ipNaslov : ipNaslov, 
 				uporabniskoIme : uporabniskoIme,
 				geslo : geslo,
+				statusAvtomatskegaPisanja : statusAvtomatskegaPisanja,
 				statusAvtomatskegaBrisanja : statusAvtomatskegaBrisanja,
 				starostZapisov : starostZapisov
 
 			},
 
 			obvescanje: {
+				statusEmailObvescanja : statusEmailObvescanja,
+				statusSMSObvescanja : statusSMSObvescanja,
 				intervalPosiljanjaEMAIL: intervalPosiljanjaEMAIL*60000,
 				intervalPosiljanjaSMS : intervalPosiljanjaSMS*60000,
 				smtpIP : smtpIP,

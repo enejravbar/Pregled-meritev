@@ -142,7 +142,22 @@
                   <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                      <table class="table table-hover" style="margin-top:30px;">
                         <tbody>
-                          
+                          <tr>
+                              <td style="border:none;">
+                                 <span>
+                                    Vklopi avtomatsko beleženje meritev v podatkovno bazo
+                                 </span>
+                              </td>
+                              <td style="border:none;">
+                                 <div class="onoffswitch">
+                                    <input id="statusAvtomatskegaPisanja" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"  >
+                                    <label class="onoffswitch-label" for="statusAvtomatskegaPisanja">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                    </label>
+                                 </div>
+                              </td>
+                           </tr>
                            <tr>
                               <td style="border:none;">
                                  <span>
@@ -194,7 +209,7 @@
                                  <span>Izbriši vse zapise iz podatkovne baze</span> 
                               </td>
                               <td>
-                                 <button id="gumb-registriraj" type="submit" class="btn btn-danger btn-sm" style="float:right; margin-right:12px;">Izbriši</button>
+                                 <button id="gumb-izbrisiVse" type="submit" class="btn btn-danger btn-sm" style="float:right; margin-right:12px;">Izbriši</button>
                               </td>
                            </tr>
                            <tr>
@@ -205,6 +220,8 @@
                            </tr>
                         </tbody>
                      </table>
+                      <span id="podBaza-okvir" class="fade-in obvestilo bg-success" style=" float:right; padding:4px;margin-top:10px; margin-right:4px;">  
+                  </span>
                   </div>
                </div>
             </div>
@@ -214,8 +231,40 @@
                <!-- E-Mail obvesčanje -->
                <span><b>Splošne nastavitve</b></span>
                <hr style=" padding-top:0px; margin-top:0px;">
-               <table class="table table-hover" style="padding-bottom:20px; margin-bottom:0px;">
+               <table class="table table-hover" style="width:50%; padding-bottom:20px; margin-bottom:0px;">
                   <tbody>
+                     <tr>
+                        <td style="border:none;">
+                           <span>
+                              Vklopi e-mail obveščanje
+                           </span>
+                        </td>
+                        <td style="border:none;">
+                           <div class="onoffswitch">
+                              <input id="statusEmailObvescanja" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"  >
+                              <label class="onoffswitch-label" for="statusEmailObvescanja">
+                              <span class="onoffswitch-inner"></span>
+                              <span class="onoffswitch-switch"></span>
+                              </label>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="border:none;">
+                           <span>
+                              Vklopi SMS obveščanje
+                           </span>
+                        </td>
+                        <td style="border:none;">
+                           <div class="onoffswitch">
+                              <input id="statusSMSObvescanja" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"  >
+                              <label class="onoffswitch-label" for="statusSMSObvescanja">
+                              <span class="onoffswitch-inner"></span>
+                              <span class="onoffswitch-switch"></span>
+                              </label>
+                           </div>
+                        </td>
+                     </tr>
                      <tr>
                         <td style="border:none;">
                            <span>

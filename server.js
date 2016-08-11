@@ -7,6 +7,7 @@ var bodyParser= require('body-parser')
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var mysql = require('mysql');
+var Worker = require('webworker-threads').Worker;
 
 var senzorLib = require('node-dht-sensor');
 
@@ -32,10 +33,6 @@ httpsServer.listen(443,function(){
 	console.log("Streznik posluša na vratih 443.");
 });
 
-var konfiguracija;
-var trenutnaMeritev; 
-main();
-
 streznik.use(express.static('public'));
 
 //  // Skrivni ključ za podpisovanje piškotkov
@@ -51,38 +48,48 @@ streznik.use(
   })
 );
 
-var pool = mysql.createPool({
-    host: konfiguracija.podatkovnaBaza.ipNaslov,
-    user: konfiguracija.podatkovnaBaza.uporabniskoIme,
-    password: konfiguracija.podatkovnaBaza.geslo,
-    database: 'meritvePivkaPerutninarstvo',
-    charset: 'UTF8_GENERAL_CI'
-});
-
-var smtpConfig = {
-    host: konfiguracija.obvescanje.smtpIP,
-    port: konfiguracija.obvescanje.smtpVrata,
-    secure: false,
-};
-
-var transporter = nodemailer.createTransport(smtpConfig);
+var konfiguracija;
+var trenutnaMeritev; 
+var pool;
 
 
+
+main();
 
 function main(){
-	
 	konfiguracija = preberiKonfiguracijskoDatoteko();
+
 	if(konfiguracija==-1){
 		console.log("Napaka na konfiguracijski datoteki!");
 		return;
 	}else{
+
+		console.log("IP naslov: " + konfiguracija.podatkovnaBaza.ipNaslov);
+
+		pool = mysql.createPool({
+		    host: konfiguracija.podatkovnaBaza.ipNaslov,
+		    user: konfiguracija.podatkovnaBaza.uporabniskoIme,
+		    password: konfiguracija.podatkovnaBaza.geslo,
+		    database: 'meritvePivkaPerutninarstvo',
+		    charset: 'UTF8_GENERAL_CI'
+		});
+
+		
+
 		if(konfiguracija.senzor.statusSenzorja == 1){
-			pridobiMeritev(konfiguracija.senzor.intervalBranjaSenzorja);	
+			pridobiMeritev(konfiguracija.senzor.intervalBranjaSenzorja);
+			if(konfiguracija.podatkovnaBaza.statusAvtomatskegaPisanja == 1){
+				avtomatskoPisanjeVBazo(60000);		
+			}else{
+				console.log("Avtomatsko pisanje v bazo je IZKLOPLJENO.");
+			}
+			
 		}
 			
 	}
 
 }
+
 
 // preusmeritev na HTTPS----------------------------------------
 
@@ -180,6 +187,36 @@ streznik.post("/konfiguracija", function(zahteva, odgovor){
 
 })
 
+streznik.post("/izbrisiVseZapise", function(zahteva,odgovor){
+	pool.getConnection(function(napaka1, connection) {
+			
+	        if (!napaka1) {
+	        	console.log('DELETE FROM meritve;');
+	            connection.query('DELETE FROM meritve;', function(napaka2, info) {
+	                if (!napaka2) {
+	                    odgovor.json({
+	                    	uspeh:true
+	                    });
+	                } else {
+	                    odgovor.json({
+	                    	uspeh:false,
+	                    	odgovor:"Napaka! Brisanje zapisov ni bilo uspešno!"
+	                    });
+	                }
+
+	            });
+
+	            connection.release();
+
+	        } else {
+	            odgovor.json({
+                	uspeh:false,
+                	odgovor:"Napaka pri vzpostavitvi povezave z podatkovno bazo!"
+                });
+	        }
+	    });
+})
+
 streznik.post("/pridobiKonfiguracijo", function(zahteva, odgovor){
 	
 	odgovor.json( JSON.stringify(preberiKonfiguracijskoDatoteko()) ); 
@@ -199,6 +236,7 @@ function preberiKonfiguracijskoDatoteko(){
 		var konfiguracija = JSON.parse(fs.readFileSync('config/config').toString());
 		return konfiguracija;	
 	}catch(e){
+		console.log(e);
 		return -1;
 	}
 	
@@ -216,29 +254,35 @@ function pridobiMeritev(interval){
 		var readout = readout = senzorLib.read();
 		var novaTemperatura = readout.temperature.toFixed(1);
 
+		if(konfiguracija.obvescanje.statusEmailObvescanja == 1){
+			emailObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000); // na 2 sekundi preveri trenutno temperaturo
+		}else{
+			console.log("Email obveščanje je ONEMOGOČENO!")
+		}
+
 		if(trenutnaMeritev == null){
 			if(novaTemperatura == 0.0){
 				console.log("Neveljavna temperatura");
-				pokliciFuncijeZaObvescanje();
+		
 			}else{
 				trenutnaMeritev={
 					temperatura : readout.temperature.toFixed(1),
 					vlaga : readout.humidity.toFixed(1) 
 				}
 				console.log("Meritev temperatura: " + trenutnaMeritev.temperatura + " Meritev vlaga: " + trenutnaMeritev.vlaga);
-				pokliciFuncijeZaObvescanje();
+				
 			}
 		}else{
 			if(Math.abs(novaTemperatura- trenutnaMeritev) >15){
 				console.log("Neveljavna temperatura");
-				pokliciFuncijeZaObvescanje();
+
 			}else{
 				trenutnaMeritev={
 					temperatura : readout.temperature.toFixed(1),
 					vlaga : readout.humidity.toFixed(1) 
 				}
 				console.log("Meritev temperatura: " + trenutnaMeritev.temperatura + " Meritev vlaga: " + trenutnaMeritev.vlaga);
-				pokliciFuncijeZaObvescanje();
+
 			}
 		}
 			
@@ -278,64 +322,101 @@ function preberiSenzor(){
 	}
 }
 
-function pokliciFuncijeZaObvescanje(){
-	emailObvescanje(konfiguracija.senzor.mejnaTemperatura, 10000); // na 2 sekundi preveri trenutno temperaturo
-}
-
 
 //----------------------- EMAIL-OBVESCANJE -------------------------
 function emailObvescanje(mejnaTemperatura, intervalPreverjanja){
 	console.log("Zaganjam email obveščanje!");
 	
-	/*setInterval(function(){
-		if(trenutnaMeritev.temperatura > mejnaTemperatura){
-			posljiEmail();
+	smtpConfig = {
+	    host: konfiguracija.obvescanje.smtpIP,
+	    port: konfiguracija.obvescanje.smtpVrata,
+	    secure: false,
+	};
 
-		}			
+	var transporter = nodemailer.createTransport(smtpConfig);
+
+	var prvic = true;
+	var casZadnjeOdposiljke; 
+	var trenutniCas;
+
+	setInterval(function(){
+		
+		if(trenutnaMeritev != null){
+			if(trenutnaMeritev.temperatura > mejnaTemperatura){
 				
+				if(prvic){
+					prvic = false;
+					casZadnjeOdposiljke = new Date();
+					console.log("casZadnjeOdposiljke = " +casZadnjeOdposiljke);
+					posljiEmail(transporter);
+				}else{
+					trenutniCas= new Date();
+					if( (trenutniCas-casZadnjeOdposiljke) >= konfiguracija.obvescanje.intervalPosiljanjaEMAIL){
+						posljiEmail(transporter);
+						casZadnjeOdposiljke = trenutniCas;
+					}
+					
+				}
+				
+
+			}
+		}
 	}, intervalPreverjanja); // vsake dve sekundi preveri temperaturo*/
 }
 
-function posljiEmail(){
 
-		var mailData = {
-		    from: 'senzorPivkaPerutninasrtvo@njami.si',
-		    to: pridobiSeznamNaslovnikov(),
-		    subject: 'Obvestilo o pregrevanju (Pivka Perutninarstvo d.d.)',
-		    html: 'Prišlo je do pregrevanja!'
-		};
 
-		transporter.sendMail(mailData, function(err){
+function posljiEmail(transporter){
+
+	var mailData = {
+	    from: 'senzorPivkaPerutninasrtvo@njami.si',
+	    to: pridobiSeznamNaslovnikov(),
+	    subject: 'Obvestilo o pregrevanju (Pivka Perutninarstvo d.d.)',
+	    html: 'Prišlo je do pregrevanja!'
+	};
+
+	transporter.sendMail(mailData, function(err){
 			if(!err){
 				console.log("Email uspešno poslan na naslove " + mailData.to);
 			}else{
 				console.log("Napaka pri pošiljanju!")
 			}
-		});
+	});
+		
 }
 
 
-function zapisiVBazo(temperatura, vlaga){
+function zapisiVBazo(){
 	
-	pool.getConnection(function(napaka1, connection) {
-		var datum = pridobiTrenutniDatum();
-        if (!napaka1) {
-        	console.log('INSERT INTO meritve (datum,temperatura,vlaga) VALUES (\''+datum+'\',\''+temperatura+'\',\''+vlaga+'\');');
-            connection.query('INSERT INTO meritve (datum,temperatura,vlaga) VALUES (\''+datum+'\',\''+temperatura+'\',\''+vlaga+'\');', function(napaka2, info) {
-                if (!napaka2) {
-                    console.log("Uspešno zapisano v bazo!");
-                } else {
-                    console.log("Napaka pri pisanju v bazo!"+napaka2);
-                }
+	if(trenutnaMeritev !=null){
+		pool.getConnection(function(napaka1, connection) {
+			var datum = pridobiTrenutniDatum();
+	        if (!napaka1) {
+	        	console.log('INSERT INTO meritve (datum, temperatura, vlaga) VALUES (\''+datum+'\',\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');');
+	            connection.query('INSERT INTO meritve (datum,temperatura,vlaga) VALUES (\''+datum+'\',\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');', function(napaka2, info) {
+	                if (!napaka2) {
+	                    console.log("Uspešno zapisano v bazo!");
+	                } else {
+	                    console.log("Napaka pri pisanju v bazo!"+napaka2);
+	                }
 
-            });
+	            });
 
-            connection.release();
+	            connection.release();
 
-        } else {
-            console.log("Napaka pri pisanju v bazo!" + napaka1);
-        }
-    });
+	        } else {
+	            console.log("Napaka pri pisanju v bazo!" + napaka1);
+	        }
+	    });
+	}	
+}
+
+function avtomatskoPisanjeVBazo(interval){
+	zapisiVBazo();
+
+	setInterval(function(){
+		zapisiVBazo();
+	},interval);
 }
 
 

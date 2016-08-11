@@ -14,6 +14,8 @@
     "node-dht-sensor" : "latest",
     "nodemailer" : "latest",
     "socket.io" : "latest",
-    "mysql" : "latest"  
+    "mysql" : "latest",
+    "node-gyp" : "latest",
+    "webworker-threads" : "latest"  
 }
 }
