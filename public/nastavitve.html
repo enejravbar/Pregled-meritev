@@ -145,7 +145,14 @@
                           <tr>
                               <td style="border:none;">
                                  <span>
-                                    Vklopi avtomatsko beleženje meritev v podatkovno bazo
+                                    Vklopi avtomatsko beleženje meritev v podatkovno bazo na interval
+                                    <select id="avtomatskoPisanje-interval" style="color:black; margin-left:5px;">
+                                       <option value="2">2 min</option>
+                                       <option value="5">5 min</option>
+                                       <option value="8">8 min</option>
+                                       <option value="10">10 min</option>
+                                       <option value="15">15 min</option>
+                                    </select>
                                  </span>
                               </td>
                               <td style="border:none;">
@@ -269,28 +276,34 @@
                         <td style="border:none;">
                            <span>
                               Ob pregrevanju ponovno pošiljaj E-mail sporočila vsakih 
-                              <select  id="interval-posiljanja-emailov"  style="width:150px; color:black; margin-left:5px;">
-                                 <option value="5">5 min</option>
-                                 <option value="10">10 min</option>
-                                 <option value="15">15 min</option>
-                                 <option value="20">20 min</option>
-                                 <option value="30">30 min</option>
-                              </select>
+                              
                            </span>
+                        </td>
+                        <td style="border:none;">
+                           <select  id="interval-posiljanja-emailov"  style="width:150px; color:black; margin-left:5px;">
+                              <option value="5">5 min</option>
+                              <option value="10">10 min</option>
+                              <option value="15">15 min</option>
+                              <option value="20">20 min</option>
+                              <option value="30">30 min</option>
+                           </select>
                         </td>
                      </tr>
                      <tr >
                         <td style="border:none;">
                            <span>
                               Ob pregrevanju ponovno pošiljaj SMS sporočila vsakih 
-                              <select  id="interval-posiljanja-smsjev"  style="width:150px; color:black; margin-left:5px;">
-                                 <option value="5">5 min</option>
-                                 <option value="10">10 min</option>
-                                 <option value="15">15 min</option>
-                                 <option value="20">20 min</option>
-                                 <option value="30">30 min</option>
-                              </select>
+                              
                            </span>
+                        </td>
+                        <td style="border:none;">
+                           <select  id="interval-posiljanja-smsjev"  style="width:150px; color:black; margin-left:5px;">
+                              <option value="5">5 min</option>
+                              <option value="10">10 min</option>
+                              <option value="15">15 min</option>
+                              <option value="20">20 min</option>
+                              <option value="30">30 min</option>
+                           </select>
                         </td>
                      </tr>
                   </tbody>

@@ -16,6 +16,7 @@
     "socket.io" : "latest",
     "mysql" : "latest",
     "node-gyp" : "latest",
-    "webworker-threads" : "latest" 
+    "webworker-threads" : "latest",
+    "connect-redis" : "latest" 
     }
 }

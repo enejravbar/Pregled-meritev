@@ -1,9 +1,19 @@
+var kontrola=0;
+
 $(document).ready(function(){
     $('#pojavnoOkno-testAplikacija').modal('show');
 	var socket = io.connect('192.168.10.50:443');
 	poslusajSocket(socket);
-	/*izrisGrafaTemperatura();
-    izrisGrafaVlaga();*/
+
+    $("#temperatura-starostMeritev").change(function(){
+         posodobiGrafe();
+    });
+
+    posodobiGrafe();
+    setInterval(function(){
+        posodobiGrafe();
+    },5000);
+	
 });
 
 
@@ -14,28 +24,46 @@ function poslusajSocket(socket){
         $("#trenutnaTemperatura").html(sporocilo.temperatura);
         $("#trenutnaVlaga").html(sporocilo.vlaga);
     })
-
-    socket.on('podatki',function(sporocilo1){
-
-    	console.log(sporocilo1);
-    	sporocilo = regulirajSteviloPodatkov(sporocilo1,20);
-    	var tabelaDatumov = vrniTabeloDatumov(sporocilo);
-    	var tabelaTemperatur  = vrniTabeloTemperatur(sporocilo);
-    	var tabelaVlage  = vrniTabeloVlage(sporocilo);
-    	if(kontrola==0){
-    		izrisGrafaTemperatura(tabelaDatumov, tabelaTemperatur,true);
-    		izrisGrafaVlaga(tabelaDatumov, tabelaVlage,true);
-            setTimeout(function(){
-                $('#pojavnoOkno-testAplikacija').modal('hide');
-            },200);
-    		kontrola=1;
-    	}else{
-    		izrisGrafaTemperatura(tabelaDatumov, tabelaTemperatur,false);
-    		izrisGrafaVlaga(tabelaDatumov, tabelaVlage,false);
-    	}
     	
+}
 
+function posodobiGrafe(){
+    
+    var starostMeritev = $("#temperatura-starostMeritev option:selected").val();
+    $.ajax({
+        type: "POST",
+        url: "/pridobiMeritveIzBaze",
+        dataType: 'json',
+        contentType: 'application/json', 
+        async: true,
+        data: JSON.stringify({starostMeritev:starostMeritev}),
+
+        success: function (odgovor){
+            if(odgovor.uspeh){
+                sporocilo = regulirajSteviloPodatkov(odgovor.podatki,20);
+                var tabelaDatumov = vrniTabeloDatumov(sporocilo);
+                var tabelaTemperatur  = vrniTabeloTemperatur(sporocilo);
+                var tabelaVlage  = vrniTabeloVlage(sporocilo);
+                if(kontrola==0){
+                    izrisGrafaTemperatura(tabelaDatumov, tabelaTemperatur,true);
+                    izrisGrafaVlaga(tabelaDatumov, tabelaVlage,true);
+                    setTimeout(function(){
+                        $('#pojavnoOkno-testAplikacija').modal('hide');
+                    },200);
+                    kontrola=1;
+                }else{
+                    izrisGrafaTemperatura(tabelaDatumov, tabelaTemperatur,false);
+                    izrisGrafaVlaga(tabelaDatumov, tabelaVlage,false);
+                }
+                
+            }
+        },
+        error: function (napaka){
+            
+        }   
     });
+
+    
 }
 
 function regulirajSteviloPodatkov(tabelaMeritev,omejitev){
@@ -52,7 +80,7 @@ function regulirajSteviloPodatkov(tabelaMeritev,omejitev){
 				stMeritev++;
 			}
 		}
-		console.log(tabela);
+		console.log("regulirano: " +tabela[0]);
 		return obrniVrstniRedElementovVTabeli(tabela);
 	}else{
 		return tabelaMeritev;
@@ -87,7 +115,8 @@ function vrniTabeloDatumov(sporocilo){
 				var tempTabela2= tempTabela[0].split("-");
 				noviDatum+=tempTabela2[2]+"-"+tempTabela2[1]+"-"+tempTabela2[0]+" ";
 			}else{
-				noviDatum+=tempTabela[j].substring(0,8);
+				var tabelaDelovUre=tempTabela[1].substring(0,8).split(":");  
+                noviDatum += popraviUro(tabelaDelovUre[0]) + ":"+ tabelaDelovUre[1] + ":"+ tabelaDelovUre[2];
 			}
 		}
 
@@ -95,6 +124,28 @@ function vrniTabeloDatumov(sporocilo){
 	}
 	console.log(tabela);
 	return tabela;
+}
+
+function popraviUro(ura){
+    console.log(ura);
+    if(ura.charAt(0)=="0"){
+        ura = ura.substring(1,2);
+    }
+    console.log("Ura po modifikaciji: "+ ura);
+    ura=parseInt(ura);
+    if(ura==22){
+        ura=0;
+    }
+    if(ura==23){
+        ura=1;
+    }
+    if(ura != 22 && ura !=23 ){
+        ura+=2;
+    }
+    if(ura<10){
+        ura="0"+ura.toString();
+    }
+    return ura;
 }
 
 function vrniTabeloTemperatur(sporocilo){

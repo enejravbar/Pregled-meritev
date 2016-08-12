@@ -9,6 +9,7 @@ var nodemailer = require('nodemailer');
 var mysql = require('mysql');
 var exec = require('child_process').exec;
 
+
 var senzorLib = require('node-dht-sensor');
 
 var streznik = express();
@@ -36,9 +37,11 @@ httpsServer.listen(443,function(){
 streznik.use(express.static('public'));
 
 //  // Skrivni ključ za podpisovanje piškotkov
+
 streznik.use(bodyParser.json());
 streznik.use(
   expressSession({
+  	
     secret: '1234567890QWERTY',
     saveUninitialized: true,    // Novo sejo shranimo
     resave: false,              // Ne zahtevamo ponovnega shranjevanja
@@ -80,7 +83,7 @@ function main(){
 			pridobiMeritev(konfiguracija.senzor.intervalBranjaSenzorja);
 			
 			if(konfiguracija.podatkovnaBaza.statusAvtomatskegaPisanja == 1){
-				avtomatskoPisanjeVBazo(60000);		
+				avtomatskoPisanjeVBazo(konfiguracija.podatkovnaBaza.avtomatskoPisanjeInterval);		
 			}else{
 				console.log("Avtomatsko pisanje v bazo je IZKLOPLJENO.");
 			}
@@ -125,10 +128,10 @@ io.sockets.on('connection', function (socket) {
 		}
 	},konfiguracija.senzor.intervalBranjaSenzorja/2);
 
-	pridobiMeritveIzBaze(socket);
+	/*pridobiMeritveIzBaze(socket);
 	setInterval(function(){
 		pridobiMeritveIzBaze(socket);
-	},10000);
+	},10000);*/
 
 });
 
@@ -194,6 +197,35 @@ streznik.post("/konfiguracija", function(zahteva, odgovor){
 		}
 	});
 
+})
+
+streznik.post("/pridobiMeritveIzBaze", function(zahteva,odgovor){
+	pool.getConnection(function(napaka1, connection) {
+        if (!napaka1) {
+        	console.log('SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL '+zahteva.body.starostMeritev+' HOUR);');
+            connection.query('SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL '+zahteva.body.starostMeritev+' HOUR);', function(napaka2, vrstice) {
+                if (!napaka2) {
+                	odgovor.json({
+                    	uspeh:true,
+                    	podatki:vrstice
+                    });	
+                } else {
+                   odgovor.json({
+                    	uspeh:false,
+                    	odgovor:"Napaka! Pridobivanje meritev iz baze ni bilo uspešno!"
+                    });
+                }
+
+            });
+            connection.release();
+        } else {
+        	odgovor.json({
+            	uspeh:false,
+            	odgovor:"Napaka! Pridobivanje meritev iz baze ni bilo uspešno!"
+            });
+            console.log("Napaka pri branju iz baze!" + napaka1);
+        }
+    });
 })
 
 streznik.post("/izbrisiVseZapise", function(zahteva,odgovor){
@@ -487,8 +519,8 @@ function zapisiVBazo(){
 		pool.getConnection(function(napaka1, connection) {
 			var datum = pridobiTrenutniDatum();
 	        if (!napaka1) {
-	        	console.log('INSERT INTO meritve (datum, temperatura, vlaga) VALUES (\''+datum+'\',\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');');
-	            connection.query('INSERT INTO meritve (datum,temperatura,vlaga) VALUES (\''+datum+'\',\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');', function(napaka2, info) {
+	        	console.log('INSERT INTO meritve (temperatura, vlaga) VALUES (\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');');
+	            connection.query('INSERT INTO meritve (temperatura,vlaga) VALUES (\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');', function(napaka2, info) {
 	                if (!napaka2) {
 	                    console.log("Uspešno zapisano v bazo!");
 	                } else {
@@ -543,25 +575,6 @@ function avtomatskoBrisanjeZapisov(){
 	    });
 	},5*60*1000); // vsakih 5 minut pobrisi stare zapise
 		
-}
-
-function pridobiMeritveIzBaze(socket){
-	pool.getConnection(function(napaka1, connection) {
-        if (!napaka1) {
-            connection.query('SELECT datum,temperatura,vlaga FROM meritve', function(napaka2, vrstice) {
-                if (!napaka2) {
-                	//console.log(vrstice[0]);
-                    socket.emit('podatki', vrstice);	
-                } else {
-                   
-                }
-
-            });
-            connection.release();
-        } else {
-            console.log("Napaka pri branju iz baze!" + napaka1);
-        }
-    });
 }
 
 function pridobiTrenutniDatum(){

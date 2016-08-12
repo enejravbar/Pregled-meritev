@@ -285,6 +285,8 @@ function pridobiNastavitve(){
 		var	uporabniskoIme = $("#uporabnisko-ime").val();
 		var	geslo = $("#geslo").val();
 
+		var avtomatskoPisanjeInterval = $("#avtomatskoPisanje-interval option:selected").val();
+
 		var statusAvtomatskegaPisanja =0;
 		if($("#statusAvtomatskegaPisanja").prop("checked")){
 			statusAvtomatskegaPisanja=1;
@@ -332,6 +334,7 @@ function pridobiNastavitve(){
 				uporabniskoIme : uporabniskoIme,
 				geslo : geslo,
 				statusAvtomatskegaPisanja : statusAvtomatskegaPisanja,
+				avtomatskoPisanjeInterval : avtomatskoPisanjeInterval*60*1000,
 				statusAvtomatskegaBrisanja : statusAvtomatskegaBrisanja,
 				starostZapisov : starostZapisov
 
