@@ -40,7 +40,7 @@
                   <li id="podBaza-Gumb" class="kategorija" style=""><a>Podatkovna baza</a></li>
                   <li id="obvescanje-Gumb" class="kategorija"><a>Obveščanje</a></li>
                   
-                  <li id="logDatoteka-Gumb" class="kategorija"><a>Log datoteka</a></li>
+                  <!--<li id="logDatoteka-Gumb" class="kategorija"><a>Log datoteka</a></li>-->
                  
                   <button id="gumb-shraniNastavitve" type="submit" class="btn btn-success" style="float:right; margin-top:7px;margin-right:5px;"><span style="margin-right:4px;s" class="glyphicon glyphicon-floppy-disk"></span>Shrani nastavitve</button>
 
@@ -52,6 +52,27 @@
             </div>
             <!-- NASTAVITVE ZA SENZOR -->
             <div id="senzor" class="panel-body nastavitev" style="">
+               <div id="pojavnoOkno-testAplikacija" class="modal fade" role="dialog"  style="position:absolute; margin-top:auto; margin-bottom:auto; top:0; bottom:0;">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        
+                        <h4 id="status" class="modal-title"></h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%">
+                            
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                  </div>
+               </div>
                <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                      <table class="table table-hover" style="">
@@ -63,7 +84,7 @@
                               </td>
                               <td style="border:none;">
                                  <div class="onoffswitch" style="">
-                                    <input id="statusSenzor" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox">
+                                    <input id="statusSenzor" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" checked>
                                     <label class="onoffswitch-label" for="statusSenzor">
                                     <span class="onoffswitch-inner"></span>
                                     <span class="onoffswitch-switch"></span>
@@ -132,6 +153,10 @@
                         <label for="geslo" class="control-label" style="margin-top:10px;">Geslo:</label>
                         <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
                            <input id="geslo" type="password" class="form-control" >
+                        </div>
+                        <label for="imePodBaze" class="control-label" style="margin-top:10px;" >Ime podatkovne baze:</label>
+                        <div class="input-group col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                           <input id="imePodBaze" type="imePodBaze" class="form-control">
                         </div>
                         <!--<button type="submit" class="btn btn-success" style="margin-top:10px;">Shrani nastavitve</button> -->
                         <div id="registracija-obvestilo-okvir" class="bg-danger fade-in obvestilo" style=" display:none; margin-left:15px; margin-top:10px; padding:6px; float:left;">

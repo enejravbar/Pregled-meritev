@@ -2,8 +2,10 @@
 var timer,timer1,timer2;
 
 $(document).ready(function() {
-
+	$('#pojavnoOkno-testAplikacija').modal('show');
   pridobiStrezniskoKonfiguracijo();
+
+   
   spremeniKategorijoNastavitev();
 
   posredujNastavitveStrezniku();
@@ -58,6 +60,9 @@ function pridobiStrezniskoKonfiguracijo(){
 	    success: function (odgovor){
           	var konfiguracija=JSON.parse(odgovor);  
 	        prikaziTrenutnoKonfiguracijo(konfiguracija);
+	        setTimeout(function(){
+			  	$('#pojavnoOkno-testAplikacija').modal('hide');
+			},300);
 	    }
 	});
 }
@@ -89,6 +94,14 @@ function prikaziTrenutnoKonfiguracijo(konfiguracija){
 	$("#uporabnisko-ime").val(podatkovnaBaza.uporabniskoIme);
 
 	$("#geslo").val(podatkovnaBaza.geslo);
+	$("#imePodBaze").val(podatkovnaBaza.imePodBaze);
+	//var avtomatskoPisanjeInterval = $("#avtomatskoPisanje-interval option:selected").val();
+
+	$("#avtomatskoPisanje-interval option").each(function(){
+		if($(this).val()==podatkovnaBaza.avtomatskoPisanjeInterval/(1000*60)){
+			$(this).prop("selected",true);
+		}
+	});
 
 	if(podatkovnaBaza.statusAvtomatskegaPisanja==1){
 		$("#statusAvtomatskegaPisanja").prop("checked",true);
@@ -284,6 +297,7 @@ function pridobiNastavitve(){
 		var	ipNaslov = $("#ip-naslov").val();
 		var	uporabniskoIme = $("#uporabnisko-ime").val();
 		var	geslo = $("#geslo").val();
+		var imePodBaze = $("#imePodBaze").val();
 
 		var avtomatskoPisanjeInterval = $("#avtomatskoPisanje-interval option:selected").val();
 
@@ -333,6 +347,7 @@ function pridobiNastavitve(){
 				ipNaslov : ipNaslov, 
 				uporabniskoIme : uporabniskoIme,
 				geslo : geslo,
+				imePodBaze : imePodBaze,
 				statusAvtomatskegaPisanja : statusAvtomatskegaPisanja,
 				avtomatskoPisanjeInterval : avtomatskoPisanjeInterval*60*1000,
 				statusAvtomatskegaBrisanja : statusAvtomatskegaBrisanja,

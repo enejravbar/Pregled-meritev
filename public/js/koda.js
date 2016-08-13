@@ -116,7 +116,7 @@ function vrniTabeloDatumov(sporocilo){
 				noviDatum+=tempTabela2[2]+"-"+tempTabela2[1]+"-"+tempTabela2[0]+" ";
 			}else{
 				var tabelaDelovUre=tempTabela[1].substring(0,8).split(":");  
-                noviDatum += popraviUro(tabelaDelovUre[0]) + ":"+ tabelaDelovUre[1] + ":"+ tabelaDelovUre[2];
+                noviDatum += popraviUro(tabelaDelovUre[0]) + ":"+ tabelaDelovUre[1];
 			}
 		}
 

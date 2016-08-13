@@ -51,6 +51,8 @@ streznik.use(
   })
 );
 
+var io = require('socket.io').listen(httpsServer);
+
 var konfiguracija;
 var trenutnaMeritev; 
 var pool;
@@ -63,17 +65,17 @@ function main(){
 	konfiguracija = preberiKonfiguracijskoDatoteko();
 
 	if(konfiguracija==-1){
-		console.log("Napaka na konfiguracijski datoteki!");
+		console.log("Napaka na konfiguracijski datoteki! Prijavite se v web konfigurator in posodobite oz. kreirajte novo config datoteko.");
 		return;
 	}else{
 
-		console.log("IP naslov: " + konfiguracija.podatkovnaBaza.ipNaslov);
+		console.log("IP naslov pod. baze: " + konfiguracija.podatkovnaBaza.ipNaslov);
 
 		pool = mysql.createPool({
 		    host: konfiguracija.podatkovnaBaza.ipNaslov,
 		    user: konfiguracija.podatkovnaBaza.uporabniskoIme,
 		    password: konfiguracija.podatkovnaBaza.geslo,
-		    database: 'meritvePivkaPerutninarstvo',
+		    database: konfiguracija.podatkovnaBaza.imePodBaze,
 		    charset: 'UTF8_GENERAL_CI'
 		});
 
@@ -82,26 +84,41 @@ function main(){
 		if(konfiguracija.senzor.statusSenzorja == 1){
 			pridobiMeritev(konfiguracija.senzor.intervalBranjaSenzorja);
 			
+			poslusajNaSocketu(); // pošiljaj trenutne meritve
+
+			if(konfiguracija.obvescanje.statusEmailObvescanja == 1){
+				emailObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000); // na 2 sekundi preveri trenutno temperaturo
+				console.log("Email obveščanje je OMOGOČENO!");
+			}else{
+				console.log("Email obveščanje je ONEMOGOČENO!");
+			}
+			if(konfiguracija.obvescanje.statusSMSObvescanja){
+				smsObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000);
+				console.log("SMS obveščanje je OMOGOČENO!")
+			}else{
+				console.log("SMS obveščanje je ONEMOGOČENO!");
+			}
+
 			if(konfiguracija.podatkovnaBaza.statusAvtomatskegaPisanja == 1){
 				avtomatskoPisanjeVBazo(konfiguracija.podatkovnaBaza.avtomatskoPisanjeInterval);		
+				console.log("Avtomatsko pisanje v bazo je VKLOPLJENO.");
 			}else{
 				console.log("Avtomatsko pisanje v bazo je IZKLOPLJENO.");
 			}
 
 			if(konfiguracija.podatkovnaBaza.statusAvtomatskegaBrisanja == 1){
 				avtomatskoBrisanjeZapisov();
+				console.log("Avtomatsko brisanje zapisov iz baze je VKLOPLJENO.");
 			}else{
 				console.log("Avtomatsko brisanje zapisov iz baze je IZKLOPLJENO.");
 			}
-
-			
-			
+		}else{
+			console.log("Senzor deaktiviran! Posledično so vse funkcionalnosti onemogočene.");
 		}
 			
 	}
 
 }
-
 
 // preusmeritev na HTTPS----------------------------------------
 
@@ -114,26 +131,21 @@ streznik.use(function(req, res, next) {
 
 //--------------------------------------------------------------
 
-var io = require('socket.io').listen(httpsServer);
+function poslusajNaSocketu(){
+	io.sockets.on('connection', function (socket) {
 
-io.sockets.on('connection', function (socket) {
+	    if(trenutnaMeritev!=null){
+	    	socket.emit('meritev', trenutnaMeritev);
+	    }  
+		setInterval(function(){
+			if(trenutnaMeritev!=null){
+				socket.emit('meritev', trenutnaMeritev);
+			}
+		},konfiguracija.senzor.intervalBranjaSenzorja/2);
+	});
+}
 
-    console.log('Klient povezan!');
-    if(trenutnaMeritev!=null){
-    	socket.emit('meritev', trenutnaMeritev);
-    }  
-	setInterval(function(){
-		if(trenutnaMeritev!=null){
-			socket.emit('meritev', trenutnaMeritev);
-		}
-	},konfiguracija.senzor.intervalBranjaSenzorja/2);
 
-	/*pridobiMeritveIzBaze(socket);
-	setInterval(function(){
-		pridobiMeritveIzBaze(socket);
-	},10000);*/
-
-});
 
 streznik.get("/", function(zahteva, odgovor){
 
@@ -171,12 +183,21 @@ streznik.post("/checkLogin", function(zahteva, odgovor){
 
 	// dostop do uporabniških podatkov zahteva.body.username in zahteva.body.password
 	
-	console.log("username "+zahteva.body.username + "\npassword "+zahteva.body.password);
+	//console.log("username "+zahteva.body.username + "\npassword "+zahteva.body.password);
+	var ajaxOdgovor;
 	zahteva.session.uporabnik=uporabniskoIme;
-	var ajaxOdgovor={
-		pravilno : true,
-		preusmeritev : "/"
+	if(uporabniskoIme=="admin" && geslo == "pivkap"){
+		ajaxOdgovor={
+			pravilno : true,
+			preusmeritev : "/"
+		}
+	}else{
+		ajaxOdgovor={
+			pravilno : false,
+			preusmeritev : "/login"
+		}
 	}
+	
 
       	odgovor.json(JSON.stringify(ajaxOdgovor));
 })
@@ -221,9 +242,9 @@ streznik.post("/pridobiMeritveIzBaze", function(zahteva,odgovor){
         } else {
         	odgovor.json({
             	uspeh:false,
-            	odgovor:"Napaka! Pridobivanje meritev iz baze ni bilo uspešno!"
+            	odgovor:"Napaka pri vzpostavitvi povezave z podatkovno bazo!"
             });
-            console.log("Napaka pri branju iz baze!" + napaka1);
+            console.log("Napaka pri vzpostavitvi povezave z podatkovno bazo!");
         }
     });
 })
@@ -321,19 +342,10 @@ function pridobiMeritev(interval){
 
 	if(inicializirajSenzor()){
 
-		var readout = readout = senzorLib.read();
-		var novaTemperatura = readout.temperature.toFixed(1);
+		console.log("Senzor aktiviran in uspešno inicializiran!");
 
-		if(konfiguracija.obvescanje.statusEmailObvescanja == 1){
-			emailObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000); // na 2 sekundi preveri trenutno temperaturo
-		}else{
-			console.log("Email obveščanje je ONEMOGOČENO!")
-		}
-		if(konfiguracija.obvescanje.statusSMSObvescanja){
-			smsObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000);
-		}else{
-			console.log("SMS obveščanje je ONEMOGOČENO!")
-		}
+		var readout = senzorLib.read();
+		var novaTemperatura = readout.temperature.toFixed(1);
 
 		if(trenutnaMeritev == null){
 			if(novaTemperatura == 0.0){
@@ -365,13 +377,16 @@ function pridobiMeritev(interval){
 			preberiSenzor();
 		}, interval);
 
+	}else{
+		console.log("Senzor NEUSPEŠNO inicializiran! Preveri, če je ustrezno priključen.");
 	}
 }
 
 function preberiSenzor(){
 	
-	var readout = readout = senzorLib.read();
+	var readout = senzorLib.read();
 	var novaTemperatura = readout.temperature.toFixed(1);
+	console.log("Nova temperatura "+ readout.temperature.toFixed(1)+ "Nova vlaga " + readout.humidity.toFixed(1) );
 
 	if(trenutnaMeritev == null){
 		if(novaTemperatura == 0.0){
@@ -400,7 +415,7 @@ function preberiSenzor(){
 
 //----------------------- EMAIL-OBVESCANJE -------------------------
 function emailObvescanje(mejnaTemperatura, intervalPreverjanja){
-	console.log("Zaganjam email obveščanje!");
+	
 	
 	smtpConfig = {
 	    host: konfiguracija.obvescanje.smtpIP,
@@ -460,7 +475,7 @@ function posljiEmail(transporter){
 
 //----------------------- SMS-OBVESCANJE -------------------------
 function smsObvescanje(mejnaTemperatura, intervalPreverjanja){
-	console.log("Zaganjam SMS obveščanje!");
+	
 
 	var prvic = true;
 	var casZadnjeOdposiljke; 
@@ -519,7 +534,7 @@ function zapisiVBazo(){
 		pool.getConnection(function(napaka1, connection) {
 			var datum = pridobiTrenutniDatum();
 	        if (!napaka1) {
-	        	console.log('INSERT INTO meritve (temperatura, vlaga) VALUES (\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');');
+	        	console.log('Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES (\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');');
 	            connection.query('INSERT INTO meritve (temperatura,vlaga) VALUES (\''+trenutnaMeritev.temperatura+'\',\''+trenutnaMeritev.vlaga+'\');', function(napaka2, info) {
 	                if (!napaka2) {
 	                    console.log("Uspešno zapisano v bazo!");
@@ -532,7 +547,7 @@ function zapisiVBazo(){
 	            connection.release();
 
 	        } else {
-	            console.log("Napaka pri pisanju v bazo!" + napaka1);
+	            console.log("Povezave z bazo ni mogoče vzpostaviti!");
 	        }
 	    });
 	}	
@@ -548,7 +563,7 @@ function avtomatskoPisanjeVBazo(interval){
 
 function avtomatskoBrisanjeZapisov(){
 	pool.getConnection(function(napaka1, connection) {
-		console.log("Avtomatsko brisanje starih zapisov je OMOGOČENO!");		
+		
         if (!napaka1) {
         	console.log('Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+ konfiguracija.podatkovnaBaza.starostZapisov + ' DAY);');
             connection.query('DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL '+konfiguracija.podatkovnaBaza.starostZapisov  + ' DAY);', function(napaka2, info) {
@@ -557,7 +572,9 @@ function avtomatskoBrisanjeZapisov(){
 
             connection.release();
 
-        } 
+        }else{
+        	console.log("Povezave z bazo ni mogoče vzpostaviti!");
+        }
     });
 	setInterval(function(){
 		
@@ -571,7 +588,9 @@ function avtomatskoBrisanjeZapisov(){
 
 	            connection.release();
 
-	        } 
+	        }else{
+	        	console.log("Povezave z bazo ni mogoče vzpostaviti!");
+	        }
 	    });
 	},5*60*1000); // vsakih 5 minut pobrisi stare zapise
 		
