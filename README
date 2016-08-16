@@ -1,11 +1,12 @@
-
+﻿
 sudo npm install -g nodemon
+sudo npm install -g forever
 
 //----------------------------------------------------------------------------------
 
-Ukaz za avtomatski ponovni pogon server.js, ko pride do spremembe config/config.txt
+Ukaz za avtomatski ponovni pogon server.js, ko pride do spremembe config/config.txt in za ponovni zagon skripte če pride do sesutja
 
-sudo nodemon -e txt --watch config server.js
+forever start --killSignal=SIGTERM -c "nodemon --exitcrash --watch config/config" server.js
 
-sudo fuser -k 80/tcp    // zaustavi process ki uporablja določe port
+sudo fuser -k 80/tcp    // zaustavi proces ki uporablja določe port
 

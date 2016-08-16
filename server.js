@@ -46,7 +46,7 @@ streznik.use(
     saveUninitialized: true,    // Novo sejo shranimo
     resave: false,              // Ne zahtevamo ponovnega shranjevanja
     cookie: {
-      maxAge: 3600000           // Seja poteče po 60min neaktivnosti v ms
+      maxAge: 3600000*6           // Seja poteče po 6 urah neaktivnosti v ms
     }
   })
 );
@@ -386,7 +386,7 @@ function preberiSenzor(){
 	
 	var readout = senzorLib.read();
 	var novaTemperatura = readout.temperature.toFixed(1);
-	console.log("Nova temperatura "+ readout.temperature.toFixed(1)+ "Nova vlaga " + readout.humidity.toFixed(1) );
+	//console.log("Nova temperatura "+ readout.temperature.toFixed(1)+ "Nova vlaga " + readout.humidity.toFixed(1) );
 
 	if(trenutnaMeritev == null){
 		if(novaTemperatura == 0.0){
@@ -457,20 +457,37 @@ function emailObvescanje(mejnaTemperatura, intervalPreverjanja){
 function posljiEmail(transporter){
 
 	var mailData = {
-	    from: 'senzorPivkaPerutninasrtvo@njami.si',
+	    from: 'senzorPivkaPerutninarstvo@njami.si',
 	    to: pridobiSeznamNaslovnikov(),
 	    subject: 'Obvestilo o pregrevanju (Pivka Perutninarstvo d.d.)',
-	    html: 'Prišlo je do pregrevanja!'
+	    html: tvoriSporocilo()
 	};
 
 	transporter.sendMail(mailData, function(err){
 			if(!err){
 				console.log("Email uspešno poslan na naslove " + mailData.to);
 			}else{
-				console.log("Napaka pri pošiljanju!")
+				console.log("Napaka pri pošiljanju! Preveri konfiguracijo!")
 			}
 	});
 		
+}
+
+function tvoriSporocilo(){
+	var d= new Date();
+	var dan = ["nedeljo","ponedeljek","torek","sredo","četrtek","petek","soboto"];
+	var ura = d.getHours();
+	var minute = d.getMinutes();
+	if(ura <10){
+		ura="0"+ura;
+	}
+	if(minute<10){
+		minute="0"+minute;
+	}
+	var sporocilo ="<h2>OBVESTILO O PREGREVANJU</h2>"+
+					"V " + dan[d.getDay()] + " ob " + ura+ ":"+minute+" je bila v server sobi Pivke Perutninarstvo d.d. prekoračena dovoljena temperatura. <br><br> Znašala je "+trenutnaMeritev.temperatura + " &#8451.<br><br>"+
+					"V primeru, da se temperatura ne bo znižala, boste vsakih " + (konfiguracija.obvescanje.intervalPosiljanjaEMAIL/(1000*60)) + " minut obveščeni z novim stanjem."
+	return sporocilo;
 }
 
 //----------------------- SMS-OBVESCANJE -------------------------
