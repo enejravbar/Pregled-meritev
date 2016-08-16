@@ -1,0 +1,1750 @@
+[33m[nodemon] 1.10.0[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: config/config[39m
+[32m[nodemon] starting `node /home/pi/Pregled-Meritev/server.js`[39m
+IP naslov pod. baze: 192.168.10.123
+Senzor aktiviran in uspešno inicializiran!
+Meritev temperatura: 26.3 Meritev vlaga: 58.4
+Email obveščanje je OMOGOČENO!
+SMS obveščanje je OMOGOČENO!
+Avtomatsko pisanje v bazo je VKLOPLJENO.
+Avtomatsko brisanje zapisov iz baze je VKLOPLJENO.
+Streznik posluša na vratih 80.
+Streznik posluša na vratih 443.
+2016-08-16 09:40:45
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('26.3','58.4');
+Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL 2 DAY);
+Uspešno zapisano v bazo!
+Meritev temperatura: 26.4 Meritev vlaga: 56.9
+Meritev temperatura: 26.4 Meritev vlaga: 56.8
+Meritev temperatura: 26.4 Meritev vlaga: 56.7
+Meritev temperatura: 26.5 Meritev vlaga: 56.7
+Meritev temperatura: 26.4 Meritev vlaga: 56.5
+Meritev temperatura: 26.5 Meritev vlaga: 56.5
+Meritev temperatura: 26.5 Meritev vlaga: 56.5
+Meritev temperatura: 26.5 Meritev vlaga: 56.4
+Meritev temperatura: 26.5 Meritev vlaga: 56.4
+Meritev temperatura: 26.5 Meritev vlaga: 56.2
+Meritev temperatura: 26.5 Meritev vlaga: 56.2
+Meritev temperatura: 26.6 Meritev vlaga: 55.6
+Meritev temperatura: 26.6 Meritev vlaga: 55.5
+Meritev temperatura: 26.6 Meritev vlaga: 55.6
+Meritev temperatura: 26.6 Meritev vlaga: 56.0
+Meritev temperatura: 26.6 Meritev vlaga: 56.0
+Meritev temperatura: 26.6 Meritev vlaga: 55.7
+Meritev temperatura: 26.6 Meritev vlaga: 55.6
+Meritev temperatura: 26.5 Meritev vlaga: 55.4
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+2016-08-16 09:42:45
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('26.5','55.3');
+Uspešno zapisano v bazo!
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.5 Meritev vlaga: 55.2
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.5 Meritev vlaga: 55.2
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.5 Meritev vlaga: 55.3
+Meritev temperatura: 26.4 Meritev vlaga: 55.3
+Meritev temperatura: 26.4 Meritev vlaga: 55.3
+Meritev temperatura: 26.4 Meritev vlaga: 55.3
+Meritev temperatura: 26.4 Meritev vlaga: 55.3
+Meritev temperatura: 26.4 Meritev vlaga: 55.3
+Meritev temperatura: 26.4 Meritev vlaga: 55.4
+Meritev temperatura: 26.4 Meritev vlaga: 55.4
+Meritev temperatura: 26.4 Meritev vlaga: 55.5
+Meritev temperatura: 26.4 Meritev vlaga: 55.5
+Meritev temperatura: 26.4 Meritev vlaga: 55.5
+Meritev temperatura: 26.3 Meritev vlaga: 55.4
+Meritev temperatura: 26.3 Meritev vlaga: 55.5
+Meritev temperatura: 26.3 Meritev vlaga: 55.5
+Meritev temperatura: 26.3 Meritev vlaga: 55.5
+Meritev temperatura: 26.3 Meritev vlaga: 55.6
+Meritev temperatura: 26.3 Meritev vlaga: 55.6
+Meritev temperatura: 26.2 Meritev vlaga: 55.5
+Meritev temperatura: 26.3 Meritev vlaga: 55.6
+2016-08-16 09:45:06
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 26.3 Meritev vlaga: 55.6
+Meritev temperatura: 26.2 Meritev vlaga: 55.6
+Meritev temperatura: 26.2 Meritev vlaga: 55.6
+Meritev temperatura: 26.2 Meritev vlaga: 55.7
+Meritev temperatura: 26.2 Meritev vlaga: 55.8
+Meritev temperatura: 26.2 Meritev vlaga: 55.8
+Meritev temperatura: 26.1 Meritev vlaga: 55.7
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 26.1 Meritev vlaga: 55.7
+Meritev temperatura: 26.1 Meritev vlaga: 55.8
+Meritev temperatura: 26.1 Meritev vlaga: 55.9
+Meritev temperatura: 26.1 Meritev vlaga: 55.9
+Meritev temperatura: 26.1 Meritev vlaga: 55.9
+Meritev temperatura: 26.1 Meritev vlaga: 56.0
+Meritev temperatura: 26.1 Meritev vlaga: 56.0
+Meritev temperatura: 26.1 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.0
+Meritev temperatura: 26.0 Meritev vlaga: 56.0
+2016-08-16 09:46:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 26.0 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.2
+Meritev temperatura: 25.9 Meritev vlaga: 56.2
+Meritev temperatura: 25.9 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.1
+Meritev temperatura: 25.9 Meritev vlaga: 56.0
+Meritev temperatura: 25.9 Meritev vlaga: 56.0
+Meritev temperatura: 25.9 Meritev vlaga: 56.0
+Meritev temperatura: 25.9 Meritev vlaga: 56.2
+Meritev temperatura: 25.9 Meritev vlaga: 56.3
+Meritev temperatura: 25.9 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+2016-08-16 09:48:48
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.9 Meritev vlaga: 56.5
+Meritev temperatura: 25.8 Meritev vlaga: 56.5
+Meritev temperatura: 25.8 Meritev vlaga: 56.5
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.5
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.5
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.8 Meritev vlaga: 56.4
+Meritev temperatura: 25.7 Meritev vlaga: 56.4
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.4
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+2016-08-16 09:50:48
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.4
+Meritev temperatura: 25.7 Meritev vlaga: 56.4
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.1
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+2016-08-16 09:52:48
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+2016-08-16 09:54:48
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+2016-08-16 09:56:48
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.9
+Meritev temperatura: 25.6 Meritev vlaga: 57.6
+Meritev temperatura: 25.6 Meritev vlaga: 57.0
+Meritev temperatura: 25.6 Meritev vlaga: 57.0
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+2016-08-16 09:58:46
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.6
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.6 Meritev vlaga: 56.4
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.3
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.7
+Meritev temperatura: 25.6 Meritev vlaga: 56.5
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.3
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.9
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 10:00:48
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 55.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.9
+Meritev temperatura: 25.6 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.2
+Meritev temperatura: 25.7 Meritev vlaga: 56.0
+Meritev temperatura: 25.7 Meritev vlaga: 56.0
+Meritev temperatura: 25.7 Meritev vlaga: 56.0
+Meritev temperatura: 25.7 Meritev vlaga: 56.0
+Meritev temperatura: 25.7 Meritev vlaga: 56.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+Meritev temperatura: 25.8 Meritev vlaga: 55.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+2016-08-16 10:02:45
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.7','55.8');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.7 Meritev vlaga: 55.7
+Meritev temperatura: 25.7 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.8 Meritev vlaga: 55.7
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.8 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+2016-08-16 10:04:45
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.7','55.4');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.7 Meritev vlaga: 55.3
+Meritev temperatura: 25.7 Meritev vlaga: 55.3
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL 2 DAY);
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+2016-08-16 10:06:45
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.7','55.4');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.7
+Meritev temperatura: 25.7 Meritev vlaga: 55.7
+Meritev temperatura: 25.7 Meritev vlaga: 55.7
+Meritev temperatura: 25.7 Meritev vlaga: 55.7
+Meritev temperatura: 25.7 Meritev vlaga: 55.7
+2016-08-16 11:05:34
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.7','55.7');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.2
+Meritev temperatura: 25.7 Meritev vlaga: 54.1
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.1
+Meritev temperatura: 25.7 Meritev vlaga: 54.0
+Meritev temperatura: 25.7 Meritev vlaga: 53.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.1
+Meritev temperatura: 25.7 Meritev vlaga: 54.4
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL 2 DAY);
+2016-08-16 11:07:34
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.7','54.6');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.5
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+2016-08-16 11:09:34
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.7','55.0');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.3
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+2016-08-16 11:11:46
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+2016-08-16 11:13:35
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.2
+Meritev temperatura: 25.7 Meritev vlaga: 55.3
+Meritev temperatura: 25.7 Meritev vlaga: 55.2
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+2016-08-16 11:15:36
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 55.6
+Meritev temperatura: 25.7 Meritev vlaga: 55.8
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.5
+Meritev temperatura: 25.7 Meritev vlaga: 55.4
+Meritev temperatura: 25.7 Meritev vlaga: 55.3
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 55.1
+Meritev temperatura: 25.7 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 11:17:37
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.8 Meritev vlaga: 55.0
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+2016-08-16 11:19:37
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.9
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+2016-08-16 11:21:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.7 Meritev vlaga: 54.8
+2016-08-16 11:23:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.7 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+2016-08-16 11:25:35
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 11:27:37
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.5
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+2016-08-16 11:29:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+Meritev temperatura: 25.6 Meritev vlaga: 54.8
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.7
+Meritev temperatura: 25.6 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.4
+Meritev temperatura: 25.6 Meritev vlaga: 54.3
+Meritev temperatura: 25.6 Meritev vlaga: 54.3
+Meritev temperatura: 25.5 Meritev vlaga: 53.8
+Meritev temperatura: 25.5 Meritev vlaga: 53.8
+Meritev temperatura: 51.0 Meritev vlaga: 53.7
+casZadnjeOdposiljke = Tue Aug 16 2016 11:31:11 GMT+0200 (CEST)
+Seznam prejemnikov: enej.ravbar@siol.net,enejcobra@gmail.com
+casZadnjeOdposiljke = Tue Aug 16 2016 11:31:11 GMT+0200 (CEST)
+php ./SMS-obvescevalec.php 51.0 zeleznikm  murnovapivkap 031764700
+Email uspešno poslan na naslove enej.ravbar@siol.net,enejcobra@gmail.com
+Sporocilo uspešno poslano na številko 031764700.
+Meritev temperatura: 25.5 Meritev vlaga: 54.0
+Meritev temperatura: 25.6 Meritev vlaga: 54.2
+Meritev temperatura: 25.5 Meritev vlaga: 54.4
+Meritev temperatura: 25.5 Meritev vlaga: 54.4
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+2016-08-16 11:31:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.6
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.4
+Meritev temperatura: 25.5 Meritev vlaga: 54.3
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+2016-08-16 11:33:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 54.4
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+Meritev temperatura: 25.5 Meritev vlaga: 56.3
+Meritev temperatura: 25.5 Meritev vlaga: 55.7
+Meritev temperatura: 25.5 Meritev vlaga: 55.4
+Meritev temperatura: 25.5 Meritev vlaga: 55.1
+Meritev temperatura: 51.0 Meritev vlaga: 54.9
+Meritev temperatura: 25.5 Meritev vlaga: 54.9
+Meritev temperatura: 25.5 Meritev vlaga: 54.9
+Meritev temperatura: 25.5 Meritev vlaga: 54.9
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+Uporabnik
+Zahteva na login ima sessionID=hRKx706tYMlNZFyHeIrPUsgZQMxZ78by
+Zahteva na login ima sessionID=hRKx706tYMlNZFyHeIrPUsgZQMxZ78by
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+2016-08-16 11:35:35
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.5','54.8');
+Uspešno zapisano v bazo!
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.8
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 55.1
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.5
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 54.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 51.0 Meritev vlaga: 53.7
+Seznam prejemnikov: enej.ravbar@siol.net,enejcobra@gmail.com
+Email uspešno poslan na naslove enej.ravbar@siol.net,enejcobra@gmail.com
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 53.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 52.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 52.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.5 Meritev vlaga: 52.4
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 52.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 52.4
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL 2 DAY);
+2016-08-16 11:37:35
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.4','52.4');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 52.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 52.0
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 52.0
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 51.0
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.6
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.5
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+2016-08-16 11:39:35
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.4','50.5');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 50.5
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.0
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.3 Meritev vlaga: 49.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.3 Meritev vlaga: 49.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.3 Meritev vlaga: 49.2
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.3 Meritev vlaga: 49.0
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.3 Meritev vlaga: 49.0
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.3 Meritev vlaga: 50.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.1
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.1
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 50.3
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 49.7
+SELECT datum,temperatura,vlaga FROM meritve WHERE datum > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+Meritev temperatura: 25.4 Meritev vlaga: 49.4
+Meritev temperatura: 25.4 Meritev vlaga: 49.4
+Meritev temperatura: 25.4 Meritev vlaga: 48.8
+Meritev temperatura: 25.4 Meritev vlaga: 48.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 48.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 48.3
+2016-08-16 11:41:45
+Povezave z bazo ni mogoče vzpostaviti!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 11:43:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.4 Meritev vlaga: 47.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 11:45:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 11:47:45
+Povezave z bazo ni mogoče vzpostaviti!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 11:49:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 44.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 44.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 11:51:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 45.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 44.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 45.3
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 44.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 44.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.2 Meritev vlaga: 45.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 44.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 11:53:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 46.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 45.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 46.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.6
+2016-08-16 11:55:45
+Povezave z bazo ni mogoče vzpostaviti!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 47.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 48.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 11:57:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.4
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 11:59:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 49.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.5
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.6
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.7
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+2016-08-16 12:01:45
+Povezave z bazo ni mogoče vzpostaviti!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.8
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Povezave z bazo ni mogoče vzpostaviti!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.0
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.1
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Napaka pri vzpostavitvi povezave z podatkovno bazo!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+2016-08-16 12:03:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.3
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.4 Meritev vlaga: 50.3
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.2
+Meritev temperatura: 25.3 Meritev vlaga: 50.1
+Meritev temperatura: 25.4 Meritev vlaga: 50.1
+Meritev temperatura: 25.4 Meritev vlaga: 50.0
+Meritev temperatura: 25.4 Meritev vlaga: 50.0
+Meritev temperatura: 25.4 Meritev vlaga: 50.0
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Meritev temperatura: 25.3 Meritev vlaga: 49.9
+Meritev temperatura: 25.4 Meritev vlaga: 50.3
+2016-08-16 12:05:45
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 50.4
+Meritev temperatura: 25.4 Meritev vlaga: 50.4
+Meritev temperatura: 25.4 Meritev vlaga: 50.5
+Meritev temperatura: 25.3 Meritev vlaga: 50.3
+Meritev temperatura: 25.3 Meritev vlaga: 50.3
+Meritev temperatura: 25.3 Meritev vlaga: 50.3
+Meritev temperatura: 25.3 Meritev vlaga: 50.3
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.4 Meritev vlaga: 50.5
+Meritev temperatura: 25.4 Meritev vlaga: 50.5
+Meritev temperatura: 25.4 Meritev vlaga: 50.4
+Meritev temperatura: 25.4 Meritev vlaga: 50.4
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.3 Meritev vlaga: 50.5
+Meritev temperatura: 25.4 Meritev vlaga: 50.7
+Meritev temperatura: 25.4 Meritev vlaga: 50.8
+Meritev temperatura: 25.3 Meritev vlaga: 51.0
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 12:07:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.3 Meritev vlaga: 50.7
+Meritev temperatura: 25.3 Meritev vlaga: 50.7
+Meritev temperatura: 25.4 Meritev vlaga: 50.6
+Meritev temperatura: 25.4 Meritev vlaga: 50.7
+Meritev temperatura: 25.4 Meritev vlaga: 50.7
+Meritev temperatura: 25.3 Meritev vlaga: 50.6
+Meritev temperatura: 25.3 Meritev vlaga: 50.7
+Meritev temperatura: 25.4 Meritev vlaga: 50.8
+Meritev temperatura: 25.4 Meritev vlaga: 50.8
+Meritev temperatura: 25.4 Meritev vlaga: 50.8
+Meritev temperatura: 25.3 Meritev vlaga: 50.8
+Meritev temperatura: 25.3 Meritev vlaga: 50.9
+Meritev temperatura: 25.3 Meritev vlaga: 50.9
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+Meritev temperatura: 25.4 Meritev vlaga: 50.9
+Meritev temperatura: 25.3 Meritev vlaga: 50.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.0
+Meritev temperatura: 25.4 Meritev vlaga: 51.0
+2016-08-16 12:09:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.0
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.1
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+2016-08-16 12:11:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+2016-08-16 12:13:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.2
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.3 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+2016-08-16 12:15:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.4
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.3
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.5
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Povezave z bazo ni mogoče vzpostaviti!
+2016-08-16 12:17:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.9
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.8
+Meritev temperatura: 25.4 Meritev vlaga: 51.7
+Meritev temperatura: 25.4 Meritev vlaga: 51.7
+Meritev temperatura: 25.4 Meritev vlaga: 51.7
+Meritev temperatura: 25.4 Meritev vlaga: 51.7
+Meritev temperatura: 25.4 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.4 Meritev vlaga: 51.6
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+2016-08-16 12:19:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.4 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 51.0 Meritev vlaga: 51.8
+Seznam prejemnikov: enej.ravbar@siol.net,enejcobra@gmail.com
+php ./SMS-obvescevalec.php 51.0 zeleznikm  murnovapivkap 031764700
+Email uspešno poslan na naslove enej.ravbar@siol.net,enejcobra@gmail.com
+Sporocilo uspešno poslano na številko 031764700.
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.6
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+2016-08-16 12:21:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 51.0 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 51.0 Meritev vlaga: 52.1
+Meritev temperatura: 25.5 Meritev vlaga: 52.1
+Meritev temperatura: 25.5 Meritev vlaga: 52.1
+Meritev temperatura: 25.5 Meritev vlaga: 52.1
+2016-08-16 12:23:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.5 Meritev vlaga: 52.0
+Meritev temperatura: 51.0 Meritev vlaga: 51.9
+Meritev temperatura: 25.5 Meritev vlaga: 51.9
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.5 Meritev vlaga: 51.7
+Meritev temperatura: 25.6 Meritev vlaga: 51.9
+Meritev temperatura: 25.5 Meritev vlaga: 51.8
+Meritev temperatura: 25.6 Meritev vlaga: 52.0
+Meritev temperatura: 25.5 Meritev vlaga: 51.9
+Meritev temperatura: 25.5 Meritev vlaga: 51.9
+Meritev temperatura: 25.5 Meritev vlaga: 51.9
+Meritev temperatura: 25.6 Meritev vlaga: 52.0
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.5 Meritev vlaga: 52.0
+Meritev temperatura: 25.5 Meritev vlaga: 52.0
+Meritev temperatura: 25.6 Meritev vlaga: 52.0
+Meritev temperatura: 25.6 Meritev vlaga: 52.5
+Meritev temperatura: 25.6 Meritev vlaga: 53.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.8
+Meritev temperatura: 51.0 Meritev vlaga: 52.9
+Seznam prejemnikov: enej.ravbar@siol.net,enejcobra@gmail.com
+Email uspešno poslan na naslove enej.ravbar@siol.net,enejcobra@gmail.com
+2016-08-16 12:25:38
+Povezave z bazo ni mogoče vzpostaviti!
+Meritev temperatura: 25.6 Meritev vlaga: 52.8
+Meritev temperatura: 25.6 Meritev vlaga: 52.5
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 53.3
+Meritev temperatura: 25.6 Meritev vlaga: 53.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.8
+Meritev temperatura: 25.6 Meritev vlaga: 52.8
+Meritev temperatura: 25.6 Meritev vlaga: 52.6
+Meritev temperatura: 25.6 Meritev vlaga: 52.5
+Meritev temperatura: 25.6 Meritev vlaga: 52.5
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.5
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.7 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Avtomatsko brisanje: DELETE FROM meritve WHERE datum < DATE_SUB(NOW(), INTERVAL 2 DAY);
+2016-08-16 12:27:35
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.6','52.3');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+2016-08-16 12:29:35
+Avtomatsko pisanje: INSERT INTO meritve (temperatura, vlaga) VALUES ('25.6','52.3');
+Uspešno zapisano v bazo!
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.4
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.1
+Meritev temperatura: 25.6 Meritev vlaga: 52.2
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
+Meritev temperatura: 25.6 Meritev vlaga: 52.3
