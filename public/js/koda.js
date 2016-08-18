@@ -2,7 +2,7 @@ var kontrola=0;
 
 $(document).ready(function(){
     $('#pojavnoOkno-testAplikacija').modal('show');
-	var socket = io.connect('192.168.10.50:443');
+	var socket = io.connect('temperaturaPivka:443');
 	poslusajSocket(socket);
 
     $("#temperatura-starostMeritev").change(function(){

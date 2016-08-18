@@ -92,7 +92,7 @@ function main(){
 			}else{
 				console.log("Email obveščanje je ONEMOGOČENO!");
 			}
-			if(konfiguracija.obvescanje.statusSMSObvescanja){
+			if(konfiguracija.obvescanje.statusSMSObvescanja==1){
 				smsObvescanje(konfiguracija.senzor.mejnaTemperatura, 2000);
 				console.log("SMS obveščanje je OMOGOČENO!")
 			}else{
@@ -345,11 +345,10 @@ function pridobiMeritev(interval){
 		console.log("Senzor aktiviran in uspešno inicializiran!");
 
 		var readout = senzorLib.read();
-		var novaTemperatura = readout.temperature.toFixed(1);
 
-		if(trenutnaMeritev == null){
-			if(novaTemperatura == 0.0){
-				console.log("Neveljavna temperatura");
+		if(readout == null){
+			if(readout.temperature.toFixed(1) == 0.0){
+				console.log("Neveljavna temperatura!!!! Meritev temperatura: " + readout.temperature.toFixed(1));
 		
 			}else{
 				trenutnaMeritev={
@@ -360,9 +359,9 @@ function pridobiMeritev(interval){
 				
 			}
 		}else{
-			if(Math.abs(novaTemperatura- trenutnaMeritev) >15){
-				console.log("Neveljavna temperatura");
-
+			if(Math.abs(readout.temperature.toFixed(1) - trenutnaMeritev) >15 || readout.temperature.toFixed(1) == 0.0){
+				console.log("Neveljavna temperatura!!!! Meritev temperatura: " + readout.temperature.toFixed(1));
+		
 			}else{
 				trenutnaMeritev={
 					temperatura : readout.temperature.toFixed(1),
@@ -385,12 +384,10 @@ function pridobiMeritev(interval){
 function preberiSenzor(){
 	
 	var readout = senzorLib.read();
-	var novaTemperatura = readout.temperature.toFixed(1);
-	//console.log("Nova temperatura "+ readout.temperature.toFixed(1)+ "Nova vlaga " + readout.humidity.toFixed(1) );
 
-	if(trenutnaMeritev == null){
-		if(novaTemperatura == 0.0){
-			console.log("Neveljavna temperatura");
+	if(readout == null){
+		if(readout.temperature.toFixed(1) == 0.0){
+			console.log("Neveljavna temperatura!!!! Meritev temperatura: " + readout.temperature.toFixed(1));
 		}else{
 			trenutnaMeritev={
 				temperatura : readout.temperature.toFixed(1),
@@ -400,8 +397,8 @@ function preberiSenzor(){
 			
 		}
 	}else{
-		if( (Math.abs(novaTemperatura- trenutnaMeritev) > 15) && novaTemperatura == 0.0 ){
-			console.log("Neveljavna temperatura");
+		if( (Math.abs(readout.temperature.toFixed(1) - trenutnaMeritev.temperatura) >= 15) || readout.temperature.toFixed(1) == 0.0 ){
+			console.log("Neveljavna temperatura!!!! Meritev temperatura: " + readout.temperature.toFixed(1));
 		}else{
 			trenutnaMeritev={
 				temperatura : readout.temperature.toFixed(1),
@@ -478,9 +475,18 @@ function tvoriSporocilo(){
 	var dan = ["nedeljo","ponedeljek","torek","sredo","četrtek","petek","soboto"];
 	var ura = d.getHours();
 	var minute = d.getMinutes();
-	if(ura <10){
-		ura="0"+ura;
+	if(ura == 22){
+		ura = 0;
+	}	
+	if(ura == 23){
+		ura = 1;	
 	}
+	if(ura != 22 && ura != 23){
+		ura = ura + 2;
+	}
+	if(ura < 10){
+		ura="0"+ura;
+	}	
 	if(minute<10){
 		minute="0"+minute;
 	}

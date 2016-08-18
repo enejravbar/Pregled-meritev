@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sudo fuser -k 80/tcp
+sudo fuser -k 443/tcp
+sudo nodemon --exitcrash --watch config/config server.js
+

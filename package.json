@@ -15,8 +15,7 @@
     "nodemailer" : "latest",
     "socket.io" : "latest",
     "mysql" : "latest",
-    "node-gyp" : "latest",
-    "webworker-threads" : "latest",
-    "connect-redis" : "latest" 
+    "connect-redis" : "latest",
+    "forever" : "latest" 
     }
 }
